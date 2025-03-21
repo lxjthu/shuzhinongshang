@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数智农商管理 - 三维融合课程体系</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --agriculture-color: #4CAF50;
+            --agriculture-light: rgba(76, 175, 80, 0.15);
+            --agriculture-gradient: linear-gradient(135deg, #4CAF50, #2E7D32);
+            
+            --datascience-color: #2196F3;
+            --datascience-light: rgba(33, 150, 243, 0.15);
+            --datascience-gradient: linear-gradient(135deg, #2196F3, #0D47A1);
+            
+            --business-color: #FF9800;
+            --business-light: rgba(255, 152, 0, 0.15);
+            --business-gradient: linear-gradient(135deg, #FF9800, #E65100);
+            
+            --text-primary: #333;
+            --text-secondary: #666;
+            --background: #f9f9f9;
+            --card-bg: #fff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .page-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .page-title h1::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, 
+                var(--agriculture-color) 0%, 
+                var(--datascience-color) 50%, 
+                var(--business-color) 100%);
+            border-radius: 2px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 三维课程体系图 */
+        .curriculum-3d {
+            margin: 60px 0;
+            position: relative;
+        }
+        
+        .domain-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .domain-tab {
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .domain-tab i {
+            font-size: 1.2rem;
+        }
+        
+        .tab-agriculture {
+            background-color: var(--card-bg);
+            color: var(--agriculture-color);
+            border: 2px solid var(--agriculture-color);
+        }
+        
+        .tab-agriculture.active, .tab-agriculture:hover {
+            background: var(--agriculture-gradient);
+            color: white;
+        }
+        
+        .tab-datascience {
+            background-color: var(--card-bg);
+            color: var(--datascience-color);
+            border: 2px solid var(--datascience-color);
+        }
+        
+        .tab-datascience.active, .tab-datascience:hover {
+            background: var(--datascience-gradient);
+            color: white;
+        }
+        
+        .tab-business {
+            background-color: var(--card-bg);
+            color: var(--business-color);
+            border: 2px solid var(--business-color);
+        }
+        
+        .tab-business.active, .tab-business:hover {
+            background: var(--business-gradient);
+            color: white;
+        }
+        
+        .domain-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .domain-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 领域内容板块 */
+        .domain-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .domain-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .domain-description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        
+        .modules-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .module-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .module-header {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .agriculture-module .module-header {
+            background: var(--agriculture-gradient);
+            color: white;
+        }
+        
+        .datascience-module .module-header {
+            background: var(--datascience-gradient);
+            color: white;
+        }
+        
+        .business-module .module-header {
+            background: var(--business-gradient);
+            color: white;
+        }
+        
+        .module-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .module-title i {
+            font-size: 1.5rem;
+        }
+        
+        .module-courses {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        
+        .course-item {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .agriculture-module .course-item {
+            background: var(--agriculture-light);
+        }
+        
+        .agriculture-module .course-item:hover {
+            background: rgba(76, 175, 80, 0.25);
+        }
+        
+        .datascience-module .course-item {
+            background: var(--datascience-light);
+        }
+        
+        .datascience-module .course-item:hover {
+            background: rgba(33, 150, 243, 0.25);
+        }
+        
+        .business-module .course-item {
+            background: var(--business-light);
+        }
+        
+        .business-module .course-item:hover {
+            background: rgba(255, 152, 0, 0.25);
+        }
+        
+        .course-icon {
+            background: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .agriculture-module .course-icon {
+            color: var(--agriculture-color);
+            box-shadow: 0 3px 8px rgba(76, 175, 80, 0.3);
+        }
+        
+        .datascience-module .course-icon {
+            color: var(--datascience-color);
+            box-shadow: 0 3px 8px rgba(33, 150, 243, 0.3);
+        }
+        
+        .business-module .course-icon {
+            color: var(--business-color);
+            box-shadow: 0 3px 8px rgba(255, 152, 0, 0.3);
+        }
+        
+        .course-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        
+        /* 连接线和智能交互 */
+        .curriculum-visualization {
+            position: relative;
+            height: 500px;
+            margin: 80px 0;
+            perspective: 1000px;
+        }
+        
+        .interaction-note {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .domain-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .domain-tab {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            
+            .modules-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .curriculum-visualization {
+                height: 300px;
+            }
+            
+            .page-title h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* 新增：3D视图切换按钮 */
+        .view-toggle {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .view-btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: #fff;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+        
+        .view-btn.active {
+            background: linear-gradient(135deg, #333, #666);
+            color: white;
+        }
+        
+        /* 3D融合视图 */
+        .integration-view {
+            position: relative;
+            height: 500px;
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .integration-canvas {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .domain-sphere {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .domain-sphere i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        
+        .agriculture-sphere {
+            background: var(--agriculture-gradient);
+            left: 15%;
+            top: 30%;
+        }
+        .agriculture-sphere:hover {
+            transform: scale(1.1);
+        }
+        
+        .datascience-sphere {
+            background: var(--datascience-gradient);
+            left: 50%;
+            top: 0%;
+            transform: translateX(-50%);
+        }
+        .datascience-sphere:hover {
+            transform:  translateX(-50%) scale(1.1) !important; /* 保留translateX并添加scale */
+        }
+        
+        .business-sphere {
+            background: var(--business-gradient);
+            right: 15%;
+            top: 30%;
+        }
+        .business-sphere:hover {
+            transform: scale(1.1);
+        }
+        
+        .connection-line {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            height: 3px;
+            transform-origin: left center;
+            z-index: -1;
+        }
+        
+        .integration-core {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4CAF50, #2196F3, #FF9800);
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            from { box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+            to { box-shadow: 0 0 30px rgba(255,255,255,0.6); }
+        }
+        
+        .integration-core i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* 涟漪效果 */
+        .floating-link-button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-link-button .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        /* 新增：知识点连接线 */
+        .knowledge-connections {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .floating-link-button {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(45deg, #3498db, #2980b9);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        z-index: 9999;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-family: 'Microsoft YaHei', sans-serif;
+    }
+    
+    .floating-link-button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(45deg, #2980b9, #3498db);
+    }
+    
+    .floating-link-button i {
+        margin-right: 8px;
+        font-size: 1.1em;
+    }
+    
+    .floating-link-button span {
+        white-space: nowrap;
+    }
+    
+    /* 添加动画效果 */
+    .floating-link-button {
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.5);
+        }
+        70% {
+            box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+        }
+    }
+    
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+        .floating-link-button {
+            bottom: 80px;
+            padding: 10px 16px;
+            font-size: 0.9em;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-title">
+            <h1>数智农商管理三维融合课程体系</h1>
+            <p class="page-subtitle">以农业产业知识(Agriculture)、数据科学方法(Data Science)和商业洞察能力(Business Insights)为三大核心维度，构建系统化、立体化的课程体系</p>
+        </div>
+        
+        <!-- 3D融合视图 -->
+        <div class="integration-view">
+            <div class="integration-canvas">
+                <div class="domain-sphere agriculture-sphere" onclick="activateTab('agriculture')">
+                    <i class="fas fa-leaf"></i>
+                    <span>农业产业知识</span>
+                    <small>Agriculture</small>
+                </div>
+                
+                <div class="domain-sphere datascience-sphere" onclick="activateTab('datascience')">
+                    <i class="fas fa-database"></i>
+                    <span>数据科学方法</span>
+                    <small>Data Science</small>
+                </div>
+                
+                <div class="domain-sphere business-sphere" onclick="activateTab('business')">
+                    <i class="fas fa-chart-line"></i>
+                    <span>商业洞察能力</span>
+                    <small>Business Insights</small>
+                </div>
+                
+                <div class="integration-core">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>数智农商管理</span>
+                    <small>三维融合</small>
+                </div>
+                
+                <div class="knowledge-connections" id="connections"></div>
+            </div>
+        </div>
+        
+        <p class="interaction-note">点击上方领域球体查看详细课程内容 | 三大领域互相融合，形成完整知识体系</p>
+        
+        <!-- 领域标签页 -->
+        <div class="domain-tabs">
+            <div class="domain-tab tab-agriculture" onclick="activateTab('agriculture')">
+                <i class="fas fa-leaf"></i>
+                <span>农业产业知识</span>
+            </div>
+            
+            <div class="domain-tab tab-datascience" onclick="activateTab('datascience')">
+                <i class="fas fa-database"></i>
+                <span>数据科学方法</span>
+            </div>
+            
+            <div class="domain-tab tab-business" onclick="activateTab('business')">
+                <i class="fas fa-chart-line"></i>
+                <span>商业洞察能力</span>
+            </div>
+        </div>
+        
+        <!-- 农业产业知识内容 -->
+        <div class="domain-content" id="agriculture-content">
+            <div class="domain-header">
+                <h2 class="domain-title" style="color: var(--agriculture-color);">农业产业知识 (Agriculture)</h2>
+                <p class="domain-description">打造扎实的农业产业理论基础和资源管理实务能力，培养学生深度理解农业经济政策与资源管理的核心素养。</p>
+            </div>
+            
+            <div class="modules-container">
+                <!-- 模块1：产业理论基础 -->
+                <div class="module-card agriculture-module">
+                    <div class="module-header">
+                        <h3 class="module-title">
+                            <i class="fas fa-book"></i>
+                            产业理论基础
+                        </h3>
+                    </div>
+                    
+                    <div class="module-courses">
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="course-name">农业经济学</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <div class="course-name">农业政策学</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-globe-asia"></i>
+                            </div>
+                            <div class="course-name">数字时代农业强国概论</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="course-name">数智农商管理导论</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="course-name">大数据与智慧农业</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 模块2：资源管理实务 -->
+                <div class="module-card agriculture-module">
+                    <div class="module-header">
+                        <h3 class="module-title">
+                            <i class="fas fa-tree"></i>
+                            资源管理实务
+                        </h3>
+                    </div>
+                    
+                    <div class="module-courses">
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div class="course-name">智慧国土空间管理</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <div class="course-name">智慧林业资源管理</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="course-name">乡村生态资产价值评估与管理</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 数据科学方法内容 -->
+        <div class="domain-content" id="datascience-content">
+            <div class="domain-header">
+                <h2 class="domain-title" style="color: var(--datascience-color);">数据科学方法 (Data Science)</h2>
+                <p class="domain-description">培养学生掌握农商大数据采集、处理与分析的方法论和实践技能，提升数据驱动决策的能力。</p>
+            </div>
+            
+            <div class="modules-container">
+                <!-- 模块1：数据分析基础 -->
+                <div class="module-card datascience-module">
+                    <div class="module-header">
+                        <h3 class="module-title">
+                            <i class="fas fa-calculator"></i>
+                            数据分析基础
+                        </h3>
+                    </div>
+                    
+                    <div class="module-courses">
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="course-name">农商数据采集与分析方法</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div class="course-name">数智农商管理实验</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="course-name">农商数据分析与应用</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 模块2：数据分析实务 -->
+                <div class="module-card datascience-module">
+                    <div class="module-header">
+                        <h3 class="module-title">
+                            <i class="fas fa-laptop-code"></i>
+                            数据分析实务
+                        </h3>
+                    </div>
+                    
+                    <div class="module-courses">
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div class="course-name">涉农企业大数据分析实务</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-cloud-sun"></i>
+                            </div>
+                            <div class="course-name">农业资源环境大数据分析</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="course-name">农村社会治理数智分析</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 商业洞察能力内容 -->
+        <div class="domain-content" id="business-content">
+            <div class="domain-header">
+                <h2 class="domain-title" style="color: var(--business-color);">商业洞察能力 (Business Insights)</h2>
+                <p class="domain-description">构建产业运营管理和数据驱动决策的综合能力，培养学生在农商领域的商业洞察与战略思维。</p>
+            </div>
+            
+            <div class="modules-container">
+                <!-- 模块1：产业运营管理 -->
+                <div class="module-card business-module">
+                    <div class="module-header">
+                        <h3 class="module-title">
+                            <i class="fas fa-cogs"></i>
+                            产业运营管理
+                        </h3>
+                    </div>
+                    
+                    <div class="module-courses">
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <div class="course-name">大数据与农业产业链运营管理</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="course-name">农产品数字营销</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-copyright"></i>
+                            </div>
+                            <div class="course-name">农业品牌数智化运营与管理</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="course-name">全球农商数智化管理</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 模块2：数据驱动决策 -->
+                <div class="module-card business-module">
+                    <div class="module-header">
+                        <h3 class="module-title">
+                            <i class="fas fa-lightbulb"></i>
+                            数据驱动决策
+                        </h3>
+                    </div>
+                    
+                    <div class="module-courses">
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="course-name">土地经济与智慧治理</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-drafting-compass"></i>
+                            </div>
+                            <div class="course-name">数字乡村建设与发展规划</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="course-name">农村数字金融</div>
+                        </div>
+                        
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="course-name">农业项目数智化管理</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- 浮动链接按钮 -->
+    <a href="index.html#core-courses" class="floating-link-button" title="查看专业核心课程建设规划">
+        <i class="fas fa-book"></i>
+        <span>核心课程规划</span>
+    </a>
+    
+    <script>
+        // 添加全屏切换功能
+        function toggleFullScreen(element) {
+            // 如果没有提供元素，默认使用整个文档
+            element = element || document.documentElement;
+            
+            if (!document.fullscreenElement &&    // 标准方法
+                !document.mozFullScreenElement && // Firefox
+                !document.webkitFullscreenElement && // Chrome, Safari
+                !document.msFullscreenElement) {  // IE/Edge
+                
+                // 进入全屏
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.mozRequestFullScreen) { // Firefox
+                    element.mozRequestFullScreen();
+                } else if (element.webkitRequestFullscreen) { // Chrome, Safari
+                    element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) { // IE/Edge
+                    element.msRequestFullscreen();
+                }
+                
+            } else {
+                // 退出全屏
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) { // Firefox
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) { // Chrome, Safari
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { // IE/Edge
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
+        // 添加F键事件监听器
+        document.addEventListener('keydown', function(event) {
+            // F键的键码是70
+            if (event.keyCode === 70 || event.key === 'f' || event.key === 'F') {
+                // 阻止默认行为
+                event.preventDefault();
+                
+                // 切换全屏状态
+                toggleFullScreen();
+            }
+        });
+        // 激活标签页功能
+        function activateTab(domain) {
+        // 清除所有标签页和内容的active类
+        document.querySelectorAll('.domain-tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        
+        document.querySelectorAll('.domain-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        // 添加active类到选中的标签页和内容
+        document.querySelector('.tab-' + domain).classList.add('active');
+        document.getElementById(domain + '-content').classList.add('active');
+        
+        // 动画效果：暂时增大对应的球体
+        const sphere = document.querySelector('.' + domain + '-sphere');
+        
+        // 根据不同球体应用不同的transform
+        if (domain === 'datascience') {
+            sphere.style.transform = 'translateX(-50%) scale(1.2)';
+        } else {
+            sphere.style.transform = 'scale(1.2)';
+        }
+        
+        setTimeout(() => {
+            // 恢复原始transform
+            if (domain === 'datascience') {
+                sphere.style.transform = 'translateX(-50%)';
+            } else {
+                sphere.style.transform = '';
+            }
+        }, 500);
+    }
+        
+        // 创建连接线
+        function createConnections() {
+            const canvas = document.getElementById('connections');
+            const spheres = {
+                agriculture: document.querySelector('.agriculture-sphere'),
+                datascience: document.querySelector('.datascience-sphere'),
+                business: document.querySelector('.business-sphere')
+            };
+            const core = document.querySelector('.integration-core');
+            
+            // 从球体到中心点的连接
+            for (const key in spheres) {
+                createConnection(spheres[key], core, canvas, key);
+            }
+            
+            // 球体之间的连接
+            createConnection(spheres.agriculture, spheres.datascience, canvas, 'ag-ds');
+            createConnection(spheres.datascience, spheres.business, canvas, 'ds-bu');
+            createConnection(spheres.business, spheres.agriculture, canvas, 'bu-ag');
+        }
+        
+        function createConnection(from, to, canvas, id) {
+            const fromRect = from.getBoundingClientRect();
+            const toRect = to.getBoundingClientRect();
+            const canvasRect = canvas.getBoundingClientRect();
+            
+            // 计算两球体中心点
+            const fromX = fromRect.left + fromRect.width / 2 - canvasRect.left;
+            const fromY = fromRect.top + fromRect.height / 2 - canvasRect.top;
+            const toX = toRect.left + toRect.width / 2 - canvasRect.left;
+            const toY = toRect.top + toRect.height / 2 - canvasRect.top;
+            
+            // 计算连接线长度和角度
+            const length = Math.sqrt(Math.pow(toX - fromX, 2) + Math.pow(toY - fromY, 2));
+            const angle = Math.atan2(toY - fromY, toX - fromX) * 180 / Math.PI;
+            
+            // 创建连接线元素
+            const line = document.createElement('div');
+            line.id = 'connection-' + id;
+            line.className = 'connection-line';
+            line.style.width = length + 'px';
+            line.style.left = fromX + 'px';
+            line.style.top = fromY + 'px';
+            line.style.transform = `rotate(${angle}deg)`;
+            
+            // 基于连接类型添加不同样式
+            if (id.includes('-')) {
+                // 球体间连接
+                line.style.background = 'rgba(255, 255, 255, 0.4)';
+                line.style.height = '2px';
+            } else {
+                // 连向中心的连接
+                line.style.background = `var(--${id}-color)`;
+                line.style.opacity = '0.5';
+                line.style.height = '3px';
+            }
+            
+            canvas.appendChild(line);
+            
+            // 添加动画效果
+            setTimeout(() => {
+                line.style.transition = 'all 0.5s ease';
+                
+                // 随时间变化连接线亮度
+                setInterval(() => {
+                    line.style.opacity = (Math.random() * 0.4 + 0.3).toString();
+                }, 2000 + Math.random() * 1000);
+            }, 100);
+        }
+
+        // 浮动按钮交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const floatingBtn = document.querySelector('.floating-link-button');
+            
+            if (floatingBtn) {
+                // 添加鼠标悬停效果
+                floatingBtn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                
+                floatingBtn.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+                
+                // 添加点击效果
+                floatingBtn.addEventListener('click', function(e) {
+                    // 添加点击涟漪效果
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+                    
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            }
+        });
+        
+        // 页面加载后初始化
+        window.addEventListener('load', function() {
+            // 默认激活农业产业知识标签页
+            activateTab('agriculture');
+            
+            // 创建连接线
+            createConnections();
+            
+            // 在窗口大小改变时重新计算连接线
+            window.addEventListener('resize', function() {
+                // 移除所有现有连接线
+                const connections = document.getElementById('connections');
+                while (connections.firstChild) {
+                    connections.removeChild(connections.firstChild);
+                }
+                
+                // 重新创建连接线
+                createConnections();
+            });
+            
+            // 添加悬浮效果
+            document.querySelectorAll('.domain-sphere').forEach(sphere => {
+                sphere.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1)';
+                });
+                
+                sphere.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,4015 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>数智农商管理专业可行性研究报告</title>
+    <link rel="stylesheet" href="libs/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="libs/reveal.js/dist/theme/white.css">
+    <link rel="stylesheet" href="libs/font-awesome/css/all.min.css">
+    <script src="libs/reveal.js/dist/reveal.js"></script>
+    <script src="libs/mermaid/mermaid.min.js"></script>
+    <!-- 添加验证检查脚本 -->
+    <script>
+        (function() {
+            // 检查是否已验证
+            if (!sessionStorage.getItem('authenticated')) {
+                // 未验证，重定向到登录页
+                window.location.href = 'login.html';
+            }
+        })();
+        </script>
+    <style>
+        :root {
+            --primary-color: #2c9678;
+            --secondary-color: #3498db;
+            --accent-color: #e67e22;
+            --dark-color: #1e3a5c;
+            --light-color: #f9f9f9;
+            --text-color: #2c3e50;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-secondary: linear-gradient(135deg, var(--accent-color), var(--primary-color) 70%);
+            --shadow-normal: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 24px rgba(0,0,0,0.12);
+            --border-radius: 8px;
+        }
+
+        /* 字体设置 */
+        @font-face {
+            font-family: 'Noto Sans SC';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG4HFnYw.ttf) format('truetype');
+        }
+        @font-face {
+            font-family: 'Noto Sans SC';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYw.ttf) format('truetype');
+        }
+        @font-face {
+            font-family: 'Noto Sans SC';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG-3FnYw.ttf) format('truetype');
+        }
+        @font-face {
+            font-family: 'Noto Sans SC';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/notosanssc/v37/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaGzjCnYw.ttf) format('truetype');
+        }
+        @font-face {
+            font-family: 'Noto Serif SC';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/notoserifsc/v31/H4cyBXePl9DZ0Xe7gG9cyOj7uK2-n-D2rd4FY7SCqyWv.ttf) format('truetype');
+        }
+        @font-face {
+            font-family: 'Noto Serif SC';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/notoserifsc/v31/H4cyBXePl9DZ0Xe7gG9cyOj7uK2-n-D2rd4FY7SwqyWv.ttf) format('truetype');
+        }
+        @font-face {
+            font-family: 'Noto Serif SC';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/notoserifsc/v31/H4cyBXePl9DZ0Xe7gG9cyOj7uK2-n-D2rd4FY7RcrCWv.ttf) format('truetype');
+        }
+        @font-face {
+            font-family: 'Noto Serif SC';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/notoserifsc/v31/H4cyBXePl9DZ0Xe7gG9cyOj7uK2-n-D2rd4FY7RlrCWv.ttf) format('truetype');
+        }
+
+        /* 基础样式 */
+        body {
+            font-family: 'Noto Sans SC', Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", "Hiragino Sans GB", Simsun, sans-self;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        .reveal {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+
+        .reveal section {
+            padding: 1rem;
+        }
+
+        .reveal h1, 
+        .reveal h2, 
+        .reveal h3, 
+        .reveal h4, 
+        .reveal h5, 
+        .reveal h6 {
+            font-family: 'Noto Serif SC', serif;
+            color: var(--dark-color);
+            margin-bottom: 0.8em;
+            text-transform: none;
+            letter-spacing: normal;
+            text-shadow: none;
+            line-height: 1.3;
+        }
+
+        .reveal h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+        }
+
+        .reveal h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+        }
+
+        .reveal h3 {
+            font-size: 1.4em;
+            color: var(--dark-color);
+        }
+
+        .reveal h4 {
+            font-size: 1.2em;
+            color: var(--accent-color);
+        }
+
+        .reveal p, .reveal li {
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .reveal .slides {
+            text-align: left;
+        }
+
+        .reveal .slides section {
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        /* 封面样式 */
+        .cover {
+            text-align: center;
+            color: white;
+            background: var(--gradient-primary);
+            position: relative;
+            height: 100%;
+            padding: 0 !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="none" stroke="white" stroke-opacity="0.1" stroke-width="1"/></svg>');
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 2;
+            padding: 2em;
+            background: rgba(0,0,0,0.2);
+            border-radius: var(--border-radius);
+            max-width: 90%;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cover h1 {
+            color: white;
+            font-size: 2.8em;
+            margin-bottom: 0.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .cover h3 {
+            color: rgba(255,255,255,0.9);
+            font-weight: 400;
+            margin-bottom: 1em;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5em;
+            margin-bottom: 1em;
+            box-shadow: var(--shadow-normal);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 0.5em;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-title i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        /* 两列布局 */
+        .columns {
+            display: flex;
+            gap: 20px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 0; /* 防止溢出 */
+        }
+
+        /* 三列布局 */
+        .columns-3 {
+            display: flex;
+            gap: 15px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .column-3 {
+            flex: 1;
+            min-width: 0; /* 防止溢出 */
+        }
+
+        /* 表格样式 */
+        .reveal table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8em;
+            margin: 0;
+        }
+
+        .reveal th {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .reveal td {
+            padding: 6px 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .reveal tr:nth-child(even) {
+            background: rgba(0,0,0,0.02);
+        }
+
+        /* 列表样式 */
+        .reveal ul, .reveal ol {
+            margin-left: 1em;
+            margin-bottom: 1em;
+        }
+
+        .reveal li {
+            margin-bottom: 0.5em;
+        }
+
+        /* 强调块 */
+        .highlight-block {
+            background: var(--light-color);
+            border-left: 4px solid var(--accent-color);
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* 标题前的图标 */
+        .icon-heading {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8em;
+        }
+
+        .icon-heading i {
+            font-size: 1.5em;
+            margin-right: 0.5em;
+            color: var(--accent-color);
+        }
+
+        /* ADB框架图 */
+        .adb-framework {
+            display: flex;
+            justify-content: space-between;
+            margin: 2em 0;
+            gap: 15px;
+        }
+
+        .adb-item {
+            flex: 1;
+            padding: 1.5em;
+            border-radius: var(--border-radius);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .adb-item h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 1.6em;
+            position: relative;
+            z-index: 2;
+        }
+
+        .adb-item p {
+            position: relative;
+            z-index: 2;
+        }
+
+        .adb-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-opacity="0.2" stroke-width="2"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
+        }
+
+        .adb-a {
+            background: var(--primary-color);
+        }
+
+        .adb-d {
+            background: var(--secondary-color);
+        }
+
+        .adb-b {
+            background: var(--accent-color);
+        }
+
+        /* 三层结构图 - 改进版 */
+        /* 三层结构图 - 交互改进版 */
+        /* 保留原有样式并添加交互功能 */
+
+        /* 导航按钮 */
+        .layer-nav {
+            display: flex;
+            justify-content: center;
+            margin: 1em auto 1.5em;
+            gap: 15px;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .layer-btn {
+            flex: 1;
+            padding: 0.8em 1em;
+            border: none;
+            border-radius: var(--border-radius, 6px);
+            background: #f0f6fa;
+            color: #555;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: var(--shadow-normal, 0 2px 5px rgba(0,0,0,0.1));
+        }
+
+        .layer-btn:hover {
+            background: #e0ecf5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .layer-btn.active {
+            background: var(--primary-color, #3498db);
+            color: white;
+        }
+
+        .layer-btn i {
+            font-size: 1.1em;
+        }
+
+        /* 三层容器 - 保留原样式，添加面板功能 */
+        .three-layer-container {
+            height: auto;
+            min-height: 350px; /* 添加最小高度，保持稳定 */
+            position: relative;
+            margin: 0 auto;
+            width: 95%;
+            max-width: 1800px;
+        }
+
+        /* 面板样式 */
+        .layer-panel {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .layer-panel.active {
+            display: block;
+            opacity: 1;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        /* 保留原有的层项样式 */
+        .layer-item {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1em;
+            margin: 0;
+            box-shadow: var(--shadow-normal);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .layer-top {
+            background: var(--gradient-primary, linear-gradient(135deg, #3498db, #2980b9));
+            color: white;
+            border: none;
+        }
+
+        .layer-top h3, .layer-top h4 {
+            color: white;
+        }
+
+        .layer-middle {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
+        }
+
+        .layer-middle h3, .layer-middle h4 {
+            color: white;
+        }
+
+        .layer-bottom {
+            background: linear-gradient(135deg, #2c9678, #27ae60);
+            color: white;
+        }
+
+        .layer-bottom h3, .layer-bottom h4 {
+            color: white;
+        }
+
+        .layer-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.3em;
+        }
+
+        .layer-title i {
+            margin-right: 8px;
+            font-size: 1.3em;
+        }
+
+        .layer-title h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .layer-item > p {
+            margin: 0.3em 0;
+            font-size: 0.9em;
+            line-height: 1.3;
+        }
+
+        /* 调整内容布局为网格，更灵活 */
+        .layer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            margin-top: 0.5em;
+        }
+
+        .layer-item-box {
+            background: rgba(255,255,255,0.9);
+            padding: 0.6em;
+            border-radius: 5px;
+            min-width: 180px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .layer-top .layer-item-box {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        .layer-middle .layer-item-box {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        .layer-bottom .layer-item-box {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        .layer-item-box h4 {
+            margin: 0 0 0.3em 0;
+            font-size: 1em;
+            line-height: 1.3;
+        }
+
+        .layer-item-box p {
+            margin: 0;
+            font-size: 0.85em;
+            line-height: 1.3;
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* 特色标签 */
+        .feature-tag {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 0.3em 0.8em;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-right: 0.5em;
+            margin-bottom: 0.5em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* 背景带有纹理的幻灯片 */
+        .bg-pattern {
+            background-color: var(--light-color);
+            background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" fill="none"/><circle cx="10" cy="10" r="1" fill="%23e0e0e0"/></svg>');
+            background-size: 20px 20px;
+        }
+
+        /* 培养目标与就业方向页面样式 */
+        .objectives-jobs-container {
+            margin-top: 20px;
+            gap: 40px;
+        }
+
+        .objective-column, .jobs-column {
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(39, 174, 96, 0.25));
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(39, 174, 96, 0.3);
+            overflow: hidden;
+        }
+
+        .jobs-column {
+            background: linear-gradient(135deg, rgba(41, 128, 185, 0.1), rgba(41, 128, 185, 0.25));
+            border: 1px solid rgba(41, 128, 185, 0.3);
+        }
+
+        /* 调整标题样式使其更突出 */
+        .column-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+            padding-bottom: 15px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 8px 8px 0 0;
+            padding: 15px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .column-header i {
+            font-size: 2.2rem; /* 增大图标 */
+            margin-right: 15px;
+            color: #27ae60;
+            background: rgba(255, 255, 255, 0.9);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .jobs-column .column-header i {
+            color: #2980b9;
+        }
+
+        .column-header h3 {
+            margin: 0;
+            font-size: 3rem; /* 增大字体 */
+            color: #333;
+            font-weight: 700; /* 加粗 */
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            letter-spacing: 0.5px; /* 增加字间距 */
+        }
+
+        /* 为标题添加渐变底色 */
+        .objective-column .column-header {
+            background: linear-gradient(to right, rgba(39, 174, 96, 0.2), rgba(39, 174, 96, 0.05));
+        }
+
+        .jobs-column .column-header {
+            background: linear-gradient(to right, rgba(41, 128, 185, 0.2), rgba(41, 128, 185, 0.05));
+        }
+
+        .fancy-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .fancy-list li {
+            margin-bottom: 12px;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .fancy-list li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .fancy-list li i {
+            margin-right: 12px;
+            color: #27ae60;
+            font-size: 1.2rem;
+        }
+
+        .jobs-column .fancy-list li i {
+            color: #2980b9;
+        }
+
+        .decoration-element {
+            position: absolute;
+            font-size: 6rem;
+            opacity: 0.08;
+            z-index: 0;
+        }
+
+        .left-decoration {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .right-decoration {
+            bottom: 20px;
+            right: 20px;
+        }
+        /* 链接样式 */
+        .necessity-card h4 a {
+            color: inherit;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .necessity-card h4 a:hover {
+            color: #3498db;
+            transform: translateX(5px);
+        }
+
+        .necessity-card h4 a i {
+            margin-right: 10px;
+        }
+
+        /* 返回按钮容器 - 右下角版本 */
+        .return-button-container {
+            position: absolute;
+            bottom: 30px;
+            right: 30px; /* 改为右对齐 */
+            z-index: 100;
+        }
+
+        /* 返回按钮样式 */
+        .return-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 20px;
+            background-color: rgba(52, 152, 219, 0.12);
+            color: #2980b9;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.6rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(52, 152, 219, 0.25);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .return-button:hover {
+            background-color: rgba(52, 152, 219, 0.2);
+            transform: translateX(-5px); /* 保持左移效果 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .return-button i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* 针对AI部分的特殊调整 */
+        .ai-section .return-button-container {
+            bottom: 25px;
+            right: 25px; /* 改为右对齐 */
+        }
+
+        .ai-section .return-button {
+            background-color: rgba(52, 152, 219, 0.15);
+            font-size: 1.8rem;
+        }
+
+        /* 高级设计漂浮目录按钮 */
+        .floating-toc-button {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 100;
+        }
+
+        .floating-toc-button a {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-color, #3498db);
+            border-radius: 30px;
+            padding: 12px 20px 12px 12px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            gap: 8px;
+        }
+
+        .floating-toc-button a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background: var(--primary-color, #3498db);
+            color: white;
+        }
+
+        .button-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: var(--primary-color, #3498db);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.1em;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .floating-toc-button a:hover .button-icon {
+            background: white;
+            color: var(--primary-color, #3498db);
+            transform: rotate(90deg);
+        }
+
+        .button-label {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+        }
+
+        .floating-toc-button a:hover .button-label {
+            transform: translateX(3px);
+        }
+
+        /* 为暗色背景调整 */
+        .cover .floating-toc-button a {
+            background: rgba(52, 152, 219, 0.85);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .cover .floating-toc-button a:hover {
+            background: white;
+            color: var(--primary-color, #3498db);
+        }
+
+        .cover .button-icon {
+            background: white;
+            color: var(--primary-color, #3498db);
+        }
+
+        .cover .floating-toc-button a:hover .button-icon {
+            background: var(--primary-color, #3498db);
+            color: white;
+        }
+
+        /* 增加视觉效果 */
+        .floating-toc-button a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .floating-toc-button a:hover::before {
+            opacity: 0.2;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .floating-toc-button {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .floating-toc-button a {
+                padding: 10px 16px 10px 10px;
+            }
+            
+            .button-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 1em;
+            }
+            
+            .button-label {
+                font-size: 0.9em;
+            }
+        }
+
+       /* 图片查看链接按钮 */
+        .image-link-container {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .image-view-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.7rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.25);
+        }
+
+        .image-view-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.35);
+        }
+
+        .image-view-button i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* 图片展示容器 */
+        .fullscreen-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 75vh;
+            margin: 20px auto;
+        }
+
+        .fullscreen-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+        }
+
+         /* 确保图片在全屏模式下适当显示 */
+    .fullscreen-image {
+        object-fit: contain;
+        transition: transform 0.2s ease;
+    }
+    
+    .fullscreen-image:hover {
+        transform: scale(1.01);
+    }
+    
+    /* 在全屏模式下的图片样式 */
+    :fullscreen .fullscreen-image {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+    
+    :-webkit-full-screen .fullscreen-image {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+    
+    :-moz-full-screen .fullscreen-image {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+    
+    :-ms-fullscreen .fullscreen-image {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+        
+        /* 必要性分析的卡片 */
+        .necessity-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.2em;
+            margin-bottom: 1em;
+            box-shadow: var(--shadow-normal);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .necessity-card h4 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .necessity-card h4 i {
+            margin-right: 10px;
+        }
+
+        /* 师资力量卡片 */
+        .teacher-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1em;
+            margin-bottom: 0.8em;
+            box-shadow: var(--shadow-normal);
+            transition: transform 0.3s;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .teacher-name {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .teacher-title {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0.5em;
+        }
+
+    
+        /* AI部分专用样式 - 左栏文本进一步右移版 */
+        .ai-section h3 {
+            color: #2c3e50;
+            font-size: 3.2rem;
+            margin-bottom: 35px;
+            text-align: left;
+            padding-bottom: 15px;
+            border-bottom: 3px solid rgba(52, 152, 219, 0.4);
+            font-weight: 700;
+        }
+
+        .ai-section h3 i {
+            color: #3498db;
+            margin-right: 18px;
+        }
+
+        .ai-section .columns {
+            display: flex;
+            gap: 35px;
+            margin: 0 0 35px 0;
+            min-height: 450px;
+        }
+
+        .ai-section .column {
+            flex: 1;
+            background: rgba(245, 245, 245, 0.95);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: visible;
+        }
+
+        .ai-section h4 {
+            color: #2980b9;
+            font-size: 2.5rem;
+            margin: 0 0 25px 0;
+            padding-bottom: 12px;
+            border-bottom: 3px solid rgba(52, 152, 219, 0.5);
+            font-weight: 600;
+        }
+
+        /* 左栏特殊样式 - 进一步右移正文文本 */
+        .ai-section .column:first-child {
+            padding-left: 50px; /* 再增加左侧内边距 */
+        }
+
+        .ai-section .column:first-child ul {
+            padding-left: 30px; /* 增加右移列表 */
+            margin-left: 25px; /* 增加额外右移 */
+        }
+
+        .ai-section .column:first-child li {
+            padding-left: 40px; /* 增加列表项左填充 */
+        }
+
+        /* 修复列表样式和项目符号对齐问题 */
+        .ai-section ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .ai-section ul li {
+            margin-bottom: 22px;
+            position: relative;
+            padding-left: 35px;
+            line-height: 1.4;
+            font-size: 2.0rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .ai-section ul li:before {
+            content: "•";
+            color: #3498db;
+            font-size: 2.0em;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            line-height: 0;
+        }
+
+        /* 左栏列表项特殊符号位置 */
+        .ai-section .column:first-child li:before {
+            left: 0; /* 保持符号位置 */
+        }
+
+        
+        /* 卡片样式 */
+        .ai-section .card {
+            background: white;
+            border-radius: 10px;
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            border-left: 6px solid #3498db;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .ai-section .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .ai-section .card-title {
+            color: #2980b9;
+            font-size: 2.3rem;
+            margin-bottom: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .ai-section .card-title i {
+            margin-right: 18px;
+            background: #ecf0f1;
+            padding: 12px;
+            border-radius: 50%;
+            color: #3498db;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+        }
+
+        .ai-section .card p {
+            margin: 0;
+            color: #444;
+            line-height: 1.5;
+            font-size: 2.0rem;
+        }
+
+        /* 底部强调卡片 */
+        .ai-section > .card {
+            margin-top: 35px;
+            background-color: #f0f6fa;
+            border-left: 6px solid #2980b9;
+            text-align: center;
+            max-width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 30px;
+        }
+
+        .ai-section > .card p {
+            margin: 0;
+            color: #2c3e50;
+            line-height: 1.5;
+            font-size: 2.1rem;
+            font-weight: 500;
+        }
+
+
+        /* 表格容器 */
+        .table-container {
+            height: 65vh;
+            overflow-y: auto;
+            margin: 0;
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+        }
+
+        /* 师资表格容器 */
+        .teacher-container {
+            height: 65vh;
+            overflow-y: auto;
+            margin: 0;
+            padding-right: 10px;
+        }
+
+       
+
+       /* 三维融合框架 - 优化版，与现有媒体查询兼容 */
+        .adb-framework-compact {
+            display: flex;
+            justify-content: space-between;
+            margin: 1em auto;
+            gap: 15px; /* 减小间距 */
+            width: 100%;
+            max-width: 2000px;
+            height: auto; /* 改为自动高度 */
+            min-height: 0; /* 移除最小高度限制 */
+            margin-bottom: 2em;
+        }
+
+        .adb-item-compact {
+            flex: 1;
+            padding: 1.5em 1.2em; /* 减少内边距 */
+            border-radius: var(--border-radius);
+            color: white;
+            text-align: center;
+            box-shadow: var(--shadow-normal);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 180px; /* 减少最小高度 */
+        }
+
+        /* 添加背景颜色定义 */
+        .adb-a-compact {
+            background: linear-gradient(135deg, #2c9678, #27ae60);
+        }
+
+        .adb-d-compact {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+
+        .adb-b-compact {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+        }
+
+        .adb-item-compact:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+
+
+
+        .adb-item-compact h3 {
+            color: white;
+            margin: 0 0 0.4em 0; /* 减少下边距 */
+            width: 100%;
+            font-size: 1.4em; /* 更小的标题字体 */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .adb-item-compact p {
+            margin: 0 0 0.8em 0; /* 减少下边距 */
+            line-height: 1.4; /* 减小行高 */
+            font-size: 0.9em; /* 更小的文本字体 */
+        }
+
+        .adb-desc-compact {
+            margin-top: 0.8em; /* 减少上边距 */
+            font-size: 0.85em; /* 更小的描述文本 */
+            line-height: 1.4; /* 减小行高 */
+            padding: 0.6em 0 0 0; /* 减少顶部内边距 */
+            width: 100%;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* 融合维度文本样式 - 优化 */
+        .fusion-dimensions {
+            margin: 1.5em auto 1.2em; /* 减少外边距 */
+            text-align: center;
+            width: 90%; /* 增加宽度 */
+            max-width: 1200px;
+            clear: both;
+            position: relative;
+        }
+
+        .fusion-dimensions p {
+            font-size: 1em; /* 减小字体 */
+            line-height: 1.5; /* 减小行高 */
+        }
+
+        .fusion-dim {
+            display: inline-block;
+            padding: 4px 10px; /* 减小内边距 */
+            margin: 0 4px 4px; /* 增加下边距，允许换行 */
+            background-color: #f0f6fa;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* 减小阴影 */
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 0.95em; /* 减小字体 */
+        }
+
+        /* 添加一个辅助类，可以在需要时应用到容器上 */
+        .auto-height-container {
+            height: auto !important;
+            min-height: 0 !important;
+            overflow-y: auto !important;
+        }
+
+        /* 示意图按钮 */
+        .diagram-btn-container {
+            text-align: center;
+            margin: 2em auto;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .diagram-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .diagram-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .diagram-btn i {
+            margin-right: 8px;
+        }
+
+        /* ADB模态框 */
+        .adb-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .adb-modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 900px;
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .adb-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #555;
+            cursor: pointer;
+            z-index: 10;
+            transition: color 0.2s ease;
+        }
+
+        .adb-close-btn:hover {
+            color: var(--primary-color);
+        }
+
+        
+
+        /* 进度指示点 */
+        .progress-dots {
+            display: flex;
+            justify-content: center;
+            margin: 1em 0;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 5px;
+        }
+
+        .dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* 流程图 */
+        .process {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2em 0;
+        }
+
+        .process-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -15px;
+            width: 30px;
+            height: 2px;
+            background: #ddd;
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .process-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 10px;
+        }
+
+        .process-icon i {
+            color: white;
+            font-size: 1.5em;
+        }
+
+        /* 图片占位符 */
+        .img-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+            border-radius: var(--border-radius);
+            margin: 1em 0;
+        }
+
+        /* 课程体系链接按钮样式 */
+        .view-curriculum-btn {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .view-curriculum-btn .curriculum-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #4CAF50, #2196F3, #FF9800);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* 添加内阴影效果 */
+            letter-spacing: 0.5px; /* 轻微增加字间距，提升可读性 */
+        }
+
+        .view-curriculum-btn .curriculum-link.white-text:hover,
+        .view-curriculum-btn .curriculum-link.white-text:focus,
+        .view-curriculum-btn .curriculum-link.white-text:active {
+            color: white !important;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+        }
+
+        .view-curriculum-btn .curriculum-link.white-text i {
+            font-size: 1.2em;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+            color: white !important; /* 确保图标也是白色 */
+        }
+
+        /* 底部小链接样式 */
+        .curriculum-note {
+            text-align: right;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        .curriculum-note a {
+            color: #0077cc;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .curriculum-note a:hover {
+            color: #005599;
+            text-decoration: underline;
+        }
+
+        .curriculum-note i {
+            font-size: 0.8em;
+        }
+        /* 滚动容器 */
+        .scrollable {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-bottom: 1em;
+        }
+
+        /* 自适应课程表 */
+        .course-table {
+            overflow-x: auto;
+            max-width: 100%;
+        }
+
+        /* 索引列表样式 */
+        .index-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            counter-reset: item;
+        }
+
+        .index-list li {
+            margin-bottom: 0.8em;
+            counter-increment: item;
+            padding-left: 2em;
+            position: relative;
+        }
+
+        .index-list li::before {
+            content: "(" counter(item) ")";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* 显示必修课表格 */
+        .required-course-table {
+            height: 65vh;
+            overflow-y: auto;
+            margin: 0;
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+        }
+
+        .elective-course-table {
+            height: 65vh;
+            overflow-y: auto;
+            margin: 0;
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+        }
+
+        /*启用页面滚动*/
+        .reveal .slides section {
+            height: auto;
+            overflow-y: auto !important; /* 启用垂直滚动 */
+            padding-bottom: 3em; /* 增加底部空间 */
+        }
+
+        /* 改善滚动条样式 */
+        .reveal .slides section::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .reveal .slides section::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 3px;
+        }
+
+        .reveal .slides section::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.15);
+            border-radius: 3px;
+        }
+
+        .reveal .slides section::-webkit-scrollbar-thumb:hover {
+            background: rgba(0,0,0,0.25);
+        }
+        
+        /* 目录页特定样式 - 添加到你的CSS中 */
+        .toc-section {
+            height: 100%;
+            overflow-y: auto; /* 允许垂直滚动 */
+        }
+
+        .toc-container {
+            max-height: 80vh; /* 设置最大高度 */
+            padding: 0 1rem;
+        }
+
+        .toc-list {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .toc-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .toc-list-compact {
+            font-size: 0.85em; /* 本身已经是紧凑样式 */
+        }
+
+        .toc-list-compact li {
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .toc-card {
+            /* 针对目录卡片的特殊样式 */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* 综合响应式样式 - 优化版 */
+        /* 通用笔记本屏幕适配 - 添加在媒体查询前 */
+        .reveal section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+            max-height: 100vh;
+            padding: 1rem;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .reveal p, .reveal ul, .reveal ol {
+            margin-top: 0.3em;
+            margin-bottom: 0.3em;
+        }
+
+        @media (max-width: 1200px) {
+            /* 大屏幕平板适配 */
+            .reveal h1 {
+                font-size: 2.3em;
+            }
+            
+            .reveal h2 {
+                font-size: 1.6em;
+            }
+            
+            .reveal h3 {
+                font-size: 1.3em;
+            }
+            
+            .cover h1 {
+                font-size: 2.4em;
+            }
+            
+            .three-layer-container {
+                height: auto;
+                min-height: 500px;
+            }
+            
+            /* AI 部分调整 */
+            .ai-section h3 {
+                font-size: 2.8rem;
+            }
+            
+            .ai-section h4 {
+                font-size: 2.3rem;
+            }
+            
+            .ai-section ul li,
+            .ai-section .card p {
+                font-size: 1.8rem;
+            }
+
+            /* 添加: 整体页面垂直间距优化 */
+            .reveal section {
+                padding: 1.5rem;
+            }
+
+            .reveal h1 {
+                margin-bottom: 0.4em;
+            }
+
+            .reveal h2 {
+                margin-bottom: 0.3em;
+            }
+
+            .reveal p {
+                margin-bottom: 0.6em;
+            }
+        }
+
+        /* 新增: 笔记本屏幕普遍适配 */
+        @media (max-width: 1366px) {
+            /* 标准笔记本屏幕调整 - 这是大多数笔记本的常见分辨率 */
+            .reveal h1 {
+                font-size: 2.2em;
+                margin-top: 0.3em;
+                margin-bottom: 0.3em;
+            }
+
+            .reveal h2 {
+                font-size: 1.5em;
+                margin-top: 0.3em;
+                margin-bottom: 0.3em;
+            }
+
+            .reveal h3 {
+                font-size: 1.2em;
+                margin-top: 0.2em;
+                margin-bottom: 0.2em;
+            }
+
+            .reveal p, .reveal li {
+                font-size: 0.95em;
+                line-height: 1.4;
+                margin-top: 0.2em;
+                margin-bottom: 0.2em;
+            }
+
+            /* 减少所有卡片和容器的内边距 */
+            .card, 
+            .necessity-card, 
+            .teacher-card,
+            .toc-card {
+                padding: 1em;
+                margin-bottom: 0.8em;
+            }
+
+            /* 减小所有按钮的大小 */
+            button, 
+            .btn,
+            .view-curriculum-btn .curriculum-link,
+            .image-view-button,
+            .return-button,
+            .diagram-btn {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+
+            /* 减小表格字体 */
+            table {
+                font-size: 0.9em;
+            }
+
+            /* 减小所有间距 */
+            .columns, 
+            .columns-3 {
+                gap: 12px;
+            }
+
+            /* 减少各种容器的外边距 */
+            .section-container, 
+            .card-container,
+            .features-container {
+                margin-top: 0.8em;
+                margin-bottom: 0.8em;
+            }
+
+            /* 减小图标尺寸 */
+            i.fas, i.far, i.fab {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 992px) {
+            /* 中等屏幕适配 */
+            .columns, 
+            .columns-3,
+            .ai-section .columns,
+            .adb-framework,
+            .adb-framework-compact {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .adb-framework-compact {
+                height: auto;
+            }
+            
+            .adb-item-compact {
+                margin-bottom: 15px;
+                min-height: 180px;
+                width: 100%;
+            }
+            
+            .column, 
+            .column-3,
+            .ai-section .column {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .three-layer-container,
+            .table-container,
+            .teacher-container,
+            .required-course-table,
+            .elective-course-table {
+                height: auto;
+                max-height: auto;
+            }
+            
+            .reveal table {
+                font-size: 0.85em;
+            }
+            
+            /* AI 部分列调整 */
+            .ai-section .column:first-child {
+                padding-left: 30px;
+            }
+            
+            .ai-section .column:first-child ul {
+                padding-left: 15px;
+                margin-left: 15px;
+            }
+            
+            .ai-section .column:first-child li {
+                padding-left: 30px;
+            }
+            
+            /* 融合维度相关 */
+            .fusion-dimensions,
+            .diagram-btn-container {
+                width: 95%;
+            }
+            
+            .adb-modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .adb-diagram {
+                height: 60vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* 平板手机适配 */
+            .reveal h1 {
+                font-size: 2em;
+            }
+            
+            .reveal h2 {
+                font-size: 1.5em;
+            }
+            
+            .reveal h3 {
+                font-size: 1.2em;
+            }
+            
+            .reveal p, .reveal li {
+                font-size: 0.9em;
+            }
+            
+            .cover h1 {
+                font-size: 2.2em;
+            }
+            
+            .cover-content {
+                padding: 1.5em;
+            }
+            
+            .process {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .process-step::after {
+                right: auto;
+                top: auto;
+                bottom: -15px;
+                left: 50%;
+                width: 2px;
+                height: 30px;
+                transform: translateX(-50%);
+            }
+
+            .toc-section .columns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .toc-section .column {
+                width: 100%;
+                margin-bottom: 0;
+            }
+            
+            .toc-section .card {
+                margin-bottom: 15px;
+            }
+            
+            .toc-list li {
+                font-size: 0.9em;
+            }
+            
+            .toc-list-compact {
+                font-size: 0.85em;
+            }
+            
+            /* 返回按钮调整 - 统一为右下角 */
+            .return-button-container {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .return-button {
+                padding: 8px 12px;
+                font-size: 1.2rem;
+            }
+            
+            .image-view-button {
+                padding: 10px 16px;
+                font-size: 1.4rem;
+            }
+            
+            /* AI 部分进一步调整 */
+            .ai-section h3 {
+                font-size: 2.4rem;
+                margin-bottom: 25px;
+            }
+            
+            .ai-section h4 {
+                font-size: 2rem;
+            }
+            
+            .ai-section ul li,
+            .ai-section .card p {
+                font-size: 1.6rem;
+            }
+            
+            .ai-section .card-title {
+                font-size: 1.8rem;
+            }
+            
+            .ai-section .card-title i {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            
+            /* 课程体系按钮 */
+            .view-curriculum-btn .curriculum-link {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            
+            /* 表格调整 */
+            .reveal table {
+                font-size: 0.75em;
+            }
+        }
+
+        /* 优化笔记本高度适配 */
+        @media (max-height: 800px) {
+            /* 大多数笔记本电脑屏幕高度适配 */
+            /* 全局减小垂直间距 */
+            .reveal section {
+                padding: 0.8rem;
+            }
+            
+            .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+                margin-top: 0.3em;
+                margin-bottom: 0.3em;
+            }
+            
+            .reveal p, .reveal ul, .reveal ol {
+                margin-top: 0.2em;
+                margin-bottom: 0.2em;
+                line-height: 1.3;
+            }
+            
+            /* 减小按钮和卡片间距 */
+            .card, .necessity-card, .teacher-card {
+                padding: 0.8em;
+                margin-bottom: 0.6em;
+            }
+            
+            button, .btn {
+                padding: 8px 12px;
+                margin: 5px 0;
+            }
+            
+            /* 特定组件适配 */
+            .toc-section h2 {
+                margin-top: 0.6rem;
+                margin-bottom: 0.6rem;
+                font-size: 1.7em;
+            }
+            
+            .toc-container {
+                padding-top: 0;
+            }
+            
+            .toc-card {
+                padding: 1rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .card-title {
+                margin-bottom: 0.4rem;
+                font-size: 1.1em;
+            }
+            
+            .toc-list li {
+                margin-bottom: 0.5rem;
+                font-size: 0.9em;
+            }
+            
+            /* 三维融合框架适配 */
+            .adb-framework-compact {
+                height: auto;
+                min-height: 0; /* 移除最小高度限制 */
+                margin-bottom: 1.5em;
+                gap: 15px;
+            }
+            
+            .adb-item-compact {
+                padding: 1.2em 1em;
+                min-height: 0; /* 移除最小高度限制 */
+            }
+            
+            .adb-item-compact h3 {
+                font-size: 1.3em;
+                margin-bottom: 0.3em;
+            }
+            
+            .adb-item-compact p {
+                font-size: 0.9em;
+                margin-bottom: 0.6em;
+                line-height: 1.4;
+            }
+            
+            .adb-desc-compact {
+                margin-top: 0.6em;
+                font-size: 0.8em;
+            }
+            
+            .fusion-dimensions {
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+            
+            .fusion-dimensions p {
+                font-size: 0.95em;
+            }
+            
+            .diagram-btn-container {
+                margin: 1em auto;
+            }
+            
+            .diagram-btn {
+                font-size: 0.95em;
+            }
+            
+            /* 减小其他容器的高度 */
+            .three-layer-container,
+            .table-container,
+            .teacher-container {
+                max-height: none;
+                height: auto;
+            }
+        }
+
+        @media (max-height: 700px) {
+            /* 较小笔记本屏幕适配 */
+            /* 进一步减小所有间距和字体 */
+            .reveal section {
+                padding: 0.6rem;
+                margin: 0;
+            }
+            
+            .reveal h1 {
+                font-size: 1.9em;
+                margin: 0.2em 0;
+            }
+            
+            .reveal h2 {
+                font-size: 1.4em;
+                margin: 0.2em 0;
+            }
+            
+            .reveal h3 {
+                font-size: 1.1em;
+                margin: 0.2em 0;
+            }
+            
+            .reveal p, .reveal li {
+                font-size: 0.85em;
+                line-height: 1.3;
+                margin: 0.15em 0;
+            }
+            
+            /* 压缩卡片和按钮 */
+            .card, .necessity-card, .teacher-card {
+                padding: 0.7em;
+                margin-bottom: 0.5em;
+            }
+            
+            button, .btn {
+                padding: 6px 10px;
+                margin: 4px 0;
+                font-size: 0.9em;
+            }
+            
+            /* 特定组件进一步压缩 */
+            .toc-section h2 {
+                margin-top: 0.4rem;
+                margin-bottom: 0.4rem;
+                font-size: 1.6em;
+            }
+            
+            .toc-card {
+                padding: 0.8rem;
+                margin-bottom: 0.6rem;
+            }
+            
+            .card-title {
+                font-size: 1em;
+                margin-bottom: 0.3rem;
+            }
+            
+            .toc-list li {
+                margin-bottom: 0.3rem;
+                font-size: 0.85em;
+            }
+            
+            .toc-list-compact {
+                font-size: 0.8em;
+            }
+            
+            .toc-list-compact li {
+                margin-bottom: 0.25rem;
+            }
+            
+            /* 三维融合框架进一步压缩 */
+            .adb-framework-compact {
+                margin-bottom: 1em;
+                gap: 12px;
+            }
+            
+            .adb-item-compact {
+                padding: 1em 0.8em;
+            }
+            
+            .adb-item-compact h3 {
+                font-size: 1.2em;
+                margin-bottom: 0.2em;
+            }
+            
+            .adb-item-compact p {
+                font-size: 0.85em;
+                margin-bottom: 0.5em;
+                line-height: 1.3;
+            }
+            
+            .adb-desc-compact {
+                margin-top: 0.5em;
+                font-size: 0.75em;
+                line-height: 1.3;
+            }
+            
+            .fusion-dimensions {
+                margin-top: 0.8em;
+                margin-bottom: 0.8em;
+                width: 90%;
+            }
+            
+            .fusion-dimensions p {
+                font-size: 0.9em;
+                line-height: 1.4;
+            }
+            
+            .fusion-dim {
+                padding: 3px 8px;
+                font-size: 0.85em;
+                margin: 0 3px 3px;
+            }
+            
+            .diagram-btn-container {
+                margin: 0.8em auto;
+            }
+            
+            .diagram-btn {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+            
+            /* 减少内容之间的间距 */
+            .columns, .columns-3 {
+                gap: 10px;
+            }
+            
+            /* 确保表格内容紧凑 */
+            table {
+                font-size: 0.8em;
+                line-height: 1.2;
+            }
+            
+            th, td {
+                padding: 0.3em 0.5em;
+            }
+        }
+
+        @media (max-height: 600px) {
+            /* 超小屏幕适配 */
+            /* 最大程度压缩所有内容 */
+            .reveal section {
+                padding: 0.4rem;
+                overflow: hidden;
+            }
+            
+            .reveal h1 {
+                font-size: 1.7em;
+                margin: 0.15em 0;
+            }
+            
+            .reveal h2 {
+                font-size: 1.3em;
+                margin: 0.15em 0;
+            }
+            
+            .reveal h3 {
+                font-size: 1em;
+                margin: 0.15em 0;
+            }
+            
+            .reveal p, .reveal li {
+                font-size: 0.8em;
+                line-height: 1.25;
+                margin: 0.1em 0;
+            }
+            
+            /* 极简卡片和按钮 */
+            .card, .necessity-card, .teacher-card {
+                padding: 0.6em;
+                margin-bottom: 0.4em;
+            }
+            
+            /* 合并间距 */
+            .columns {
+                gap: 8px;
+            }
+            
+            .toc-section h2 {
+                margin-top: 0.3rem;
+                margin-bottom: 0.3rem;
+                font-size: 1.4em;
+            }
+            
+            .toc-card {
+                padding: 0.6rem;
+                margin-bottom: 0.4rem;
+            }
+            
+            .card-title {
+                font-size: 0.95em;
+                margin-bottom: 0.2rem;
+            }
+            
+            .toc-list {
+                padding-left: 1rem;
+            }
+            
+            .toc-list li {
+                margin-bottom: 0.2rem;
+                font-size: 0.8em;
+                line-height: 1.2;
+            }
+            
+            .toc-list-compact {
+                font-size: 0.75em;
+            }
+            
+            .toc-list-compact li {
+                margin-bottom: 0.15rem;
+                line-height: 1.2;
+            }
+            
+            /* 三维融合框架最大压缩 */
+            .adb-framework-compact {
+                min-height: 0;
+                margin-bottom: 0.8em;
+                gap: 8px;
+            }
+            
+            .adb-item-compact {
+                padding: 0.8em 0.6em;
+                min-height: 0;
+            }
+            
+            .adb-item-compact h3 {
+                font-size: 1.1em;
+                margin-bottom: 0.15em;
+            }
+            
+            .adb-item-compact p {
+                font-size: 0.75em;
+                margin-bottom: 0.3em;
+                line-height: 1.25;
+            }
+            
+            .adb-desc-compact {
+                margin-top: 0.3em;
+                font-size: 0.7em;
+                line-height: 1.25;
+                padding-top: 0.3em;
+            }
+            
+            .fusion-dimensions {
+                margin-top: 0.6em;
+                margin-bottom: 0.6em;
+                width: 95%;
+            }
+            
+            .fusion-dimensions p {
+                font-size: 0.8em;
+                line-height: 1.3;
+            }
+            
+            .fusion-dim {
+                padding: 2px 6px;
+                font-size: 0.8em;
+                margin: 0 2px 2px;
+            }
+            
+            .diagram-btn-container {
+                margin: 0.6em auto;
+            }
+            
+            .diagram-btn {
+                padding: 5px 10px;
+                font-size: 0.8em;
+            }
+            
+            /* 减小表格大小 */
+            table {
+                font-size: 0.75em;
+                line-height: 1.1;
+            }
+            
+            th, td {
+                padding: 0.2em 0.4em;
+            }
+            
+            /* 移除所有非必要的装饰性元素 */
+            .decorative-element {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            /* 小型手机适配 */
+            .reveal h1 {
+                font-size: 1.8em;
+            }
+            
+            .reveal h2 {
+                font-size: 1.3em;
+            }
+            
+            .reveal h3 {
+                font-size: 1.1em;
+            }
+            
+            .reveal p, .reveal li {
+                font-size: 0.85em;
+            }
+            
+            .cover h1 {
+                font-size: 1.8em;
+            }
+            
+            .cover h3 {
+                font-size: 1em;
+            }
+            
+            .card, 
+            .necessity-card, 
+            .teacher-card {
+                padding: 1em;
+            }
+            
+            .card-title {
+                font-size: 1.1em;
+            }
+            
+            .reveal section {
+                padding: 0.5rem;
+            }
+
+            .toc-section h2 {
+                font-size: 1.4em;
+                margin: 0.5rem 0;
+            }
+            
+            .toc-card {
+                padding: 0.8rem;
+            }
+            
+            .toc-list li {
+                font-size: 0.85em;
+                margin-bottom: 0.5rem;
+            }
+            
+            .toc-list-compact {
+                font-size: 0.8em;
+            }
+            
+            .toc-list-compact li {
+                margin-bottom: 0.3rem;
+            }
+            
+            /* AI 部分小屏幕调整 */
+            .ai-section h3 {
+                font-size: 2rem;
+            }
+            
+            .ai-section h4 {
+                font-size: 1.7rem;
+            }
+            
+            .ai-section ul li,
+            .ai-section .card p {
+                font-size: 1.4rem;
+            }
+            
+            .ai-section .card {
+                padding: 20px;
+            }
+            
+            .ai-section .card-title {
+                font-size: 1.6rem;
+            }
+            
+            .ai-section .column {
+                padding: 20px;
+            }
+            
+            /* 按钮优化 */
+            .view-curriculum-btn .curriculum-link,
+            .image-view-button,
+            .return-button,
+            .diagram-btn {
+                padding: 10px 16px;
+                font-size: 0.85em;
+                /* 增加触摸目标大小，提高可用性 */
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* 减小图标大小 */
+            .view-curriculum-btn .curriculum-link i,
+            .image-view-button i,
+            .return-button i,
+            .diagram-btn i {
+                font-size: 1em;
+            }
+        }
+
+        /* 防止内容溢出的通用样式 */
+        .prevent-overflow {
+            max-width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; /* 提升移动设备滚动体验 */
+        }
+
+        /* 课程体系链接按钮响应式处理 */
+        .view-curriculum-btn {
+            text-align: center;
+            margin: 20px 0;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .view-curriculum-btn .curriculum-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: nowrap;
+            gap: 8px;
+            max-width: 90%;
+            overflow: hidden;
+            white-space: normal; /* 允许文本换行 */
+            height: auto;
+            min-height: 44px;
+            padding: 12px 20px;
+            word-break: break-word;
+        }
+
+        /* 笔记本屏幕优化类 */
+        .laptop-optimize {
+            height: auto !important;
+            min-height: 0 !important;
+            max-height: none !important;
+            overflow-y: visible !important;
+        }
+
+        /* 自动高度容器 */
+        .auto-height-container {
+            height: auto !important;
+            min-height: 0 !important;
+            overflow-y: auto !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- 封面 -->
+            <section class="cover">
+                <div class="cover-content">
+                    <h1>工商管理<br>（数智农商管理）专业<br>可行性研究报告</h1>
+                    <h3>产教融通 · 数智赋能 · 交叉创新</h3>
+                    <p style="margin-top: 2em;">
+                        <i class="fas fa-university"></i> 中南财经政法大学工商管理学院
+                    </p>
+                </div>
+            </section>
+
+            <!-- 目录 -->
+            <section class="toc-section prevent-overflow">
+                <h2><i class="fas fa-list"></i> 报告内容</h2>
+                <div class="toc-container">
+                    <div class="columns">
+                        <div class="column">
+                            <div class="card toc-card">
+                                <div class="card-title">
+                                    <a href="#/major-intro" class="section-link">
+                                        <i class="fas fa-graduation-cap"></i> 专业方向简介
+                                    </a>
+                                </div>
+                                <ul class="toc-list">
+                                    <li>培养定位</li>
+                                    <li>培养特色</li>
+                                    <li>培养目标与就业方向</li>
+                                </ul>
+                            </div>
+                            <div class="card toc-card">
+                                <div class="card-title">
+                                    <a href="#/necessity" class="section-link">
+                                    <i class="fas fa-chart-line"></i> 设立必要性分析</a>
+                                </div>
+                                <ul class="toc-list toc-list-compact">
+                                    <li>服务农业强国建设的战略需要</li>
+                                    <li>破解乡村振兴问题的现实需要</li>
+                                    <li>弥补人才短板的迫切需要</li>
+                                    <li>顺应人工智能潮流的时代需要</li>
+                                    <li>打造特色商学院的内在需要</li>
+                                    <li>推动农林经济管理专业转型的学科融合需要</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card toc-card">
+                                <div class="card-title">
+                                    <a href="#/curriculum" class="section-link">
+                                    <i class="fas fa-book"></i> 课程体系设计
+                                    </a>
+                                </div>
+                                <ul class="toc-list">
+                                    <li>课程设计思路</li>
+                                    <li>专业核心课程建设规划</li>
+                                    <li>全程培养方案设计</li>
+                                </ul>
+                            </div>
+                            <div class="card toc-card">
+                                <div class="card-title">
+                                    <a href="#/team" class="section-link">
+                                    <i class="fas fa-users"></i> 教学团队与教材建设
+                                </a>
+                                </div>
+                                <ul class="toc-list">
+                                    <li>师资队伍</li>
+                                    <li>产教融合</li>
+                                    <li>教材与课程资源体系建设</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 专业方向简介 -->
+            <section  id="major-intro">
+                <section  id="position">
+                    <h2><i class="fas fa-bullseye"></i> 培养定位</h2>
+                    <div class="highlight-block">
+                        <p>立足新时代乡村振兴战略和农业农村现代化的重大需求，面向数字农业和智慧乡村建设的前沿领域，以"<strong>产教融通、数智赋能、交叉创新</strong>"为培养理念，着力塑造"<strong>精三农、通经管、懂法律</strong>"的复合型创新人才。</p>
+                    </div>
+                    <p>能够胜任<span class="feature-tag">农业农村数智分析师</span><span class="feature-tag">数智乡村治理专家</span><span class="feature-tag">农业数智转型顾问</span>等新兴岗位</p>
+                    <p>具有<span class="feature-tag">扎实理论功底</span><span class="feature-tag">精湛数据技能</span><span class="feature-tag">敏锐商业洞察力</span></p>
+                    <p>助力<span class="feature-tag">乡村振兴战略实施</span><span class="feature-tag">农业强国建设</span></p>
+                </section>
+
+                <section id="features">
+                    <h2><i class="fas fa-star"></i> 培养特色</h2>
+                    <h3>1. "数智农商"的专业定位</h3>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="necessity-card">
+                                <h4><i class="fas fa-seedling"></i> 深植农业基因</h4>
+                                <p>培养学生系统掌握农业经济运行规律与产业链数字化转型路径，构建覆盖"生产-加工-流通"全链条的产业认知体系。</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="necessity-card">
+                                <h4><i class="fas fa-database"></i> 驾驭数据智能</h4>
+                                <p>培养学生掌握农业多元数据的采集方法与规范流程，并具备利用农业领域数据对通用大模型进行增强检索生成和参数高效微调的能力。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="necessity-card">
+                        <h4><i class="fas fa-lightbulb"></i> 引领产业变革</h4>
+                        <p>培养学生善用人工智能工具，能够通过优化提示工程框架和行业知识图谱强化智能推理，培养基于智能算法的战略决策思维与数字治理能力。</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>2. "三维融合"的课程体系</h3>
+                    <div class="adb-framework-compact auto-height-container">
+                        <div class="adb-item-compact adb-a-compact">
+                            <h3>A</h3>
+                            <p>农业产业知识<br>(Agriculture)</p>
+                            <div class="adb-desc-compact">构建扎实的农业产业认知基础</div>
+                        </div>
+                        <div class="adb-item-compact adb-d-compact">
+                            <h3>D</h3>
+                            <p>数智科学方法<br>(Data Science)</p>
+                            <div class="adb-desc-compact">培养数字化分析与应用能力</div>
+                        </div>
+                        <div class="adb-item-compact adb-b-compact">
+                            <h3>B</h3>
+                            <p>商业洞察能力<br>(Business Insights)</p>
+                            <div class="adb-desc-compact">打造商业价值转化能力</div>
+                        </div>
+                    </div>
+                    
+                    <div class="fusion-dimensions">
+                        <p>三大板块融合通过 <span class="fusion-dim"><strong>课程内容</strong></span>、<span class="fusion-dim"><strong>教学方法</strong></span>、<span class="fusion-dim"><strong>实践环节</strong></span> 三个维度实现。</p>
+                    </div>
+                    
+                    <div class="diagram-btn-container">
+                        <button class="diagram-btn" onclick="showADBDiagram()">
+                            <i class="fas fa-eye"></i> 查看三维融合示意图
+                        </button>
+                    </div>
+                    
+                    <!-- 模态框 -->
+                    <div id="adbDiagramModal" class="adb-modal">
+                        <div class="adb-modal-content">
+                            <span class="adb-close-btn" onclick="closeADBModal()">&times;</span>
+                            <div class="adb-diagram">
+                            <!-- 添加图片标签，src指向你的图片文件 -->
+                            <img src="三维融合的课程体系.png" alt="ADB三维融合示意图" style="width:100%; max-height:90vh; object-fit:contain;">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>3. "产教融通"的实践机制</h3>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-building"></i> 校企协同</div>
+                                <p>与领先农业企业建立深度合作关系，共同开展人才培养、科研创新、实践基地建设等合作。</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-project-diagram"></i> 项目引领</div>
+                                <p>以真实项目驱动教学，将企业实际需求融入课程教学，强化学生解决实际问题的能力。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title"><i class="fas fa-flask"></i> 创新实践</div>
+                        <p>建设数据实验室、农业基地等实践平台，为学生提供真实的实践环境和丰富的实践机会。</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2><i class="fas fa-crosshairs"></i> 培养目标与就业方向</h2>
+                    <div class="columns objectives-jobs-container">
+                        <div class="column objective-column">
+                            <div class="column-header">
+                                <i class="fas fa-bullseye"></i>
+                                <h3>核心能力目标</h3>
+                            </div>
+                            <ul class="fancy-list">
+                                <li><i class="fas fa-seedling"></i> 掌握农业产业发展规律</li>
+                                <li><i class="fas fa-chart-line"></i> 精通数据分析工具应用</li>
+                                <li><i class="fas fa-chess-knight"></i> 具备商业战略规划能力</li>
+                                <li><i class="fas fa-balance-scale"></i> 熟悉农业政策法规体系</li>
+                            </ul>
+                            <div class="decoration-element left-decoration">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                        </div>
+                        <div class="column jobs-column">
+                            <div class="column-header">
+                                <i class="fas fa-briefcase"></i>
+                                <h3>主要就业方向</h3>
+                            </div>
+                            <ul class="fancy-list">
+                                <li><i class="fas fa-chart-pie"></i> 农业农村数智分析师</li>
+                                <li><i class="fas fa-cogs"></i> 智慧农业运营管理师</li>
+                                <li><i class="fas fa-city"></i> 数智乡村建设规划师</li>
+                                <li><i class="fas fa-lightbulb"></i> 农业数字化转型顾问</li>
+                                <li><i class="fas fa-shopping-cart"></i> 农业电商运营专家</li>
+                            </ul>
+                            <div class="decoration-element right-decoration">
+                                <i class="fas fa-tractor"></i>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 专业方向设立的必要性分析 -->
+            <section id="necessity">
+                <section id="necessity-toc" class="bg-pattern">
+                    <h2><i class="fas fa-question-circle"></i> 专业方向设立的必要性分析</h2>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="necessity-card">
+                                <h4><a href="#/agriculture-strategy"><i class="fas fa-flag"></i> 服务农业强国建设的战略需要</a></h4>
+                            </div>
+                            <div class="necessity-card">
+                                <h4><a href="#/rural-revitalization"><i class="fas fa-home"></i> 破解乡村振兴问题的现实需要</a></h4>
+                            </div>
+                            <div class="necessity-card">
+                                <h4><a href="#/talent-gap"><i class="fas fa-user-graduate"></i> 弥补人才短板的迫切需要</a></h4>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="necessity-card">
+                                <h4><a href="#/ai-trend"><i class="fas fa-robot"></i> 顺应人工智能潮流的时代需要</a></h4>
+                            </div>
+                            <div class="necessity-card">
+                                <h4><a href="#/business-school"><i class="fas fa-university"></i> 打造特色商学院的内在需要</a></h4>
+                            </div>
+                            <div class="necessity-card">
+                                <h4><a href="#/discipline-integration"><i class="fas fa-sync-alt"></i> 推动农林经济管理专业转型的学科融合需要</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="agriculture-strategy">
+                    <h3><i class="fas fa-flag"></i> 服务农业强国建设的战略需要</h3>
+                    <div class="highlight-block">
+                        <p>党的二十大报告明确提出要全面推进乡村振兴，加快建设农业强国，为新时代农业农村现代化发展指明了方向。</p>
+                    </div>
+                    <p>数字经济时代的到来，正在重塑传统农业发展模式。大数据、人工智能、物联网等新一代信息技术与农业产业的深度融合，催生了智慧农业、数字乡村等新业态。</p>
+                    <p>迫切需要一批既懂农业产业规律，又精通数字技术应用，还具备现代商业思维的复合型人才，以推动农业数字化转型和产业升级。</p>
+                    <div class="card" style="background-color: #f0f6fa;">
+                        <p><strong>数智农商管理专业通过构建"农业产业知识+数智科学方法+商业洞察能力"的多维度培养体系，培养能够运用数据思维解决农业发展难题、推动农业数字化转型的创新型人才。</strong></p>
+                    </div>
+                    <!-- 返回目录按钮 -->
+                    <div class="return-button-container">
+                        <a href="#/necessity-toc" class="return-button"><i class="fas fa-arrow-left"></i> 返回目录</a>
+                    </div>
+                </section>
+
+                <section id="rural-revitalization">
+                    <h3><i class="fas fa-home"></i> 破解乡村振兴问题的现实需要</h3>
+                    <h4>当前乡村振兴面临的挑战：</h4>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-industry"></i> 产业发展层面</div>
+                                <ul>
+                                    <li>农产品供需信息不对称</li>
+                                    <li>流通效率低下问题突出</li>
+                                    <li>农产品"卖难"与"买难"并存</li>
+                                    <li>价格波动风险加大</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-cogs"></i> 经营管理层面</div>
+                                <ul>
+                                    <li>农业经营主体缺乏科学决策支撑</li>
+                                    <li>对关键信息把握不足</li>
+                                    <li>生产经营的盲目性较大</li>
+                                    <li>抗风险能力不强</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" style="background-color: #f0f6fa;">
+                        <p><strong>数智农商管理专业将培养学生掌握农业产业知识、数据分析方法和商业管理技能，具备运用数智技术解决农业农村实际问题的能力。</strong></p>
+                    </div>
+                    <!-- 返回目录按钮 -->
+                    <div class="return-button-container">
+                        <a href="#/necessity-toc" class="return-button"><i class="fas fa-arrow-left"></i> 返回目录</a>
+                    </div>
+                </section>
+
+                <section id="talent-gap">
+                    <h3><i class="fas fa-user-graduate"></i> 弥补人才短板的迫切需要</h3>
+                    <div class="highlight-block">
+                        <p>《全国智慧农业行动计划(2024—2028年)》指出，目前农业数字化转型仍面临基础薄弱、人才短缺等突出问题。</p>
+                        <p>根据科技日报2024年4月发布的最新调查数据显示，我国数字化转型领域的整体人才缺口高达<strong>2500万至3000万</strong>，其中农业农村数字化转型更是面临严峻的人才短缺问题。</p>
+                    </div>
+                    <h4>现有人才培养模式的局限性：</h4>
+                    <div class="columns">
+                        <div class="column">
+                            <ul>
+                                <li>传统农林院校培养的人才在数字技术应用和商业经营方面素养不足</li>
+                                <li>商学院毕业生往往缺乏对农业农村发展规律的深入理解</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <ul>
+                                <li>计算机相关专业的毕业生虽精通数据分析技术，但缺乏商业洞察力和农业领域知识</li>
+                                <li>单一学科背景的人才难以胜任复合要求</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card" style="background-color: #f0f6fa;">
+                        <p><strong>数智农商管理专业将打通农业、商业与数据科技的壁垒，培养具备多元知识结构的复合型人才。</strong></p>
+                    </div>
+                    <!-- 返回目录按钮 -->
+                    <div class="return-button-container">
+                        <a href="#/necessity-toc" class="return-button"><i class="fas fa-arrow-left"></i> 返回目录</a>
+                    </div>
+                </section>
+
+                <section  id="ai-trend" class="ai-section">
+                    <h3><i class="fas fa-robot"></i> 顺应人工智能潮流的时代需要</h3>
+                    <div class="columns">
+                        <div class="column">
+                            <h4>AI技术发展现状</h4>
+                            <ul>
+                                <li>大模型技术不断迭代突破</li>
+                                <li>中国本土大模型DeepSeek取得突破性进展</li>
+                                <li>开源开放战略降低应用门槛</li>
+                                <li>资源利用效率显著提升</li>
+                            </ul>
+                            <h4>农商领域AI应用面临挑战</h4>
+                            <ul>
+                                <li>数据质量和安全问题</li>
+                                <li>人才短缺问题</li>
+                                <li>应用落地问题</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>数智农商管理专业的解决方案</h4>
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-book"></i> 专业知识</div>
+                                <p>农业经济学、农业政策学等课程，帮助学生深入理解行业特点</p>
+                            </div>
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-laptop-code"></i> 技术能力</div>
+                                <p>数智农商管理导论、大数据与智慧农业等课程，使学生掌握现代数智科学方法</p>
+                            </div>
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-hands-helping"></i> 实践应用</div>
+                                <p>通过产学研合作项目，让学生直接参与农商数字化转型项目</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" style="background-color: #f0f6fa;">
+                        <p><strong>数智农商管理专业将系统培养学生具备农业商业知识基础、数据分析能力和人工智能应用技能，为农商领域的智能化转型提供智力支持和创新动力。</strong></p>
+                    </div>
+                    <!-- 返回目录按钮 -->
+                    <div class="return-button-container">
+                        <a href="#/necessity-toc" class="return-button"><i class="fas fa-arrow-left"></i> 返回目录</a>
+                    </div>
+                </section>
+
+                <section id="business-school">
+                    <h3><i class="fas fa-university"></i> 打造特色商学院的内在需要</h3>
+                    <div class="highlight-block">
+                        <p>长期以来，国内商学院的建设与发展过于聚焦城市经济与工商业态，对农业农村领域的商业发展关注不足，形成了明显的"重工轻农"、"重城轻乡"的倾向。</p>
+                    </div>
+                    <h4>中南财经政法大学工商管理（数智农商管理）特色方向建设意义：</h4>
+                    <ul>
+                        <li>填补商科教育在农商领域的空白</li>
+                        <li>践行ESG理念和可持续发展使命</li>
+                        <li>将数字技术、商业管理与农业发展深度融合</li>
+                        <li>破解农村发展中的人才瓶颈，为乡村振兴提供智力支持</li>
+                        <li>在全国商科教育领域形成独特的学科品牌和人才培养特色</li>
+                    </ul>
+                    <div class="card" style="background-color: #f0f6fa;">
+                        <p><strong>数智农商管理专业方向的设立将推动中南财经政法大学工商管理学院形成独特的学科品牌和人才培养特色，为乡村振兴事业培养急需的复合型人才。</strong></p>
+                    </div>
+                    <!-- 返回目录按钮 -->
+                    <div class="return-button-container">
+                        <a href="#/necessity-toc" class="return-button"><i class="fas fa-arrow-left"></i> 返回目录</a>
+                    </div>
+                </section>
+
+                <section id="discipline-integration">
+                    <h3><i class="fas fa-sync-alt"></i> 推动农林经济管理专业转型的学科融合需要</h3>
+                    <div class="columns">
+                        <div class="column">
+                            <h4>现有专业优势</h4>
+                            <ul>
+                                <li>深厚的历史积淀和鲜明的学科优势</li>
+                                <li>"精三农、通经管、懂法律"的特色</li>
+                                <li>农业经济理论、城乡共同富裕等领域的全国影响力</li>
+                                <li>高水平教学科研队伍</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>数字经济时代的挑战</h4>
+                            <ul>
+                                <li>数字技术深刻改变农业生产方式</li>
+                                <li>传统农业经济理论力不从心</li>
+                                <li>农业产业链延伸与多功能性拓展</li>
+                                <li>农业数字经济占比快速提升</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card" style="background-color: #f0f6fa;">
+                        <p><strong>工商管理（数智农商管理）专业方向不是对传统农经专业的简单替代，而是在保持其核心优势的基础上，通过引入数智科学、商业洞察等新兴知识领域，实现对传统学科的创新性拓展和升级。</strong></p>
+                    </div>
+                    <!-- 返回目录按钮 -->
+                    <div class="return-button-container">
+                        <a href="#/necessity-toc" class="return-button"><i class="fas fa-arrow-left"></i> 返回目录</a>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 课程体系设计 -->
+            <section id="curriculum">
+                <section>
+                    <h2><i class="fas fa-th"></i> 课程体系设计</h2>
+                    <h3>课程设计思路</h3>
+                    <p>工商管理（数智农商管理）专业课程体系实现了"农业产业知识（Agriculture）"、"数智科学方法（Data Science）"与"商业洞察能力（Business Insights）"的"三维融合"（简称"ADB"）。</p>
+                    
+                    <div class="columns">
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-seedling"></i> A：农业产业知识</div>
+                                <p>构建学生的产业认知基础和资源管理能力，通过农业经济学、农业政策学等基础课程，掌握农业经济运行规律、政策制定原理和产业发展趋势。</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-database"></i> D：数智科学方法</div>
+                                <p>着重培养学生的数据思维和分析能力，从数智农商管理导论到具体的分析实务，掌握数据采集、清洗、存储和分析的方法。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title"><i class="fas fa-lightbulb"></i> B：商业洞察能力</div>
+                        <p>致力于提升学生的管理决策水平，通过产业链运营管理、数字营销等课程，掌握现代农业企业的运营管理方法和数据驱动决策。</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>三维融合机制</h3>
+                    <!-- 添加查看课程体系的按钮/链接 -->
+                    <div class="view-curriculum-btn">
+                        <a href="三维融合课程体系.html" class="curriculum-link">
+                            <i class="fas fa-th-large"></i> 查看完整三维融合课程体系
+                        </a>
+                    </div>
+                    
+                    <div class="columns">
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-book"></i> 课程内容融合</div>
+                                <p>强调跨模块知识整合，设计综合性项目贯通农业产业、数据分析、商业决策。</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-chalkboard-teacher"></i> 教学方法融合</div>
+                                <p>采用案例与实践结合模式，引导学生运用多领域工具解决实际问题。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title"><i class="fas fa-hands-helping"></i> 实践环节融合</div>
+                        <p>注重跨学科项目设计，培养学生综合运用能力，构建数字农业领域整体思维。</p>
+                    </div>
+                    
+                    <!-- 可选：在底部添加更小的链接提示 -->
+                    <div class="curriculum-note">
+                        <a href="三维融合课程体系.html">点击查看三维融合课程体系详情 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </section>
+
+                <section  id="core-courses">
+                    <h3><i class="fas fa-book"></i> 专业核心课程建设规划 - 必修课</h3>
+                    <div class="required-course-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="25%">课程名称</th>
+                                    <th width="13%">课程类型</th>
+                                    <th width="25%">课程负责人</th>
+                                    <th width="37%">课程建设资源</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>农业经济学</td>
+                                    <td>必修</td>
+                                    <td>陈池波、邓远建</td>
+                                    <td>原有课程，已出版教材</td>
+                                </tr>
+                                <tr>
+                                    <td>农业政策学</td>
+                                    <td>必修</td>
+                                    <td>吴海涛、陈池波</td>
+                                    <td>原有课程，获得湖北省一流本科课程荣誉</td>
+                                </tr>
+                                <tr>
+                                    <td>数智农商管理导论</td>
+                                    <td>必修</td>
+                                    <td>吴海涛、史战文</td>
+                                    <td>《大数据与农商信息分析》公选课</td>
+                                </tr>
+                                <tr>
+                                    <td>智慧国土空间管理</td>
+                                    <td>必修</td>
+                                    <td>宋敏、谢建豪</td>
+                                    <td>《土地管理学》《国土空间治理与美丽中国》</td>
+                                </tr>
+                                <tr>
+                                    <td>智慧林业资源管理</td>
+                                    <td>必修</td>
+                                    <td>郎晓娟、屈志光</td>
+                                    <td>《林业经济学（双语）》</td>
+                                </tr>
+                                <tr>
+                                    <td>大数据与农业产业链运营管理</td>
+                                    <td>必修</td>
+                                    <td>孙绘淳、郎晓娟</td>
+                                    <td>已在2024版培养方案中开设</td>
+                                </tr>
+                                <tr>
+                                    <td>乡村生态资产价值评估与管理</td>
+                                    <td>必修</td>
+                                    <td>邓远建、屈志光</td>
+                                    <td>《农业生态经济学》《商务数据建模》</td>
+                                </tr>
+                                <tr>
+                                    <td>全球农商数智化管理</td>
+                                    <td>必修</td>
+                                    <td>丁士军、孙绘淳</td>
+                                    <td>《外国农业经济》</td>
+                                </tr>
+                                <tr>
+                                    <td>农产品数字营销</td>
+                                    <td>必修</td>
+                                    <td>田云、张开华</td>
+                                    <td>《农产品营销学》</td>
+                                </tr>
+                                <tr>
+                                    <td>农商数据采集与分析方法</td>
+                                    <td>必修</td>
+                                    <td>田云、赵雁</td>
+                                    <td>《农村调查方法》</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-book"></i> 专业核心课程建设规划 - 选修课与实践课</h3>
+                    <div class="elective-course-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="25%">课程名称</th>
+                                    <th width="13%">课程类型</th>
+                                    <th width="25%">课程负责人</th>
+                                    <th width="37%">课程建设资源</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>数字时代农业强国概论</td>
+                                    <td>选修</td>
+                                    <td>陈池波、梁志会</td>
+                                    <td>《农业强国概论》《大国三农·热点纵览》公选课</td>
+                                </tr>
+                                <tr>
+                                    <td>农商数据分析与应用</td>
+                                    <td>选修</td>
+                                    <td>秦小迪、郎晓娟</td>
+                                    <td>《管理研究方法》《数据分析方法与模型》</td>
+                                </tr>
+                                <tr>
+                                    <td>土地经济与智慧治理</td>
+                                    <td>选修</td>
+                                    <td>谢建豪、崔许锋</td>
+                                    <td>《土地经济学》</td>
+                                </tr>
+                                <tr>
+                                    <td>农业资源环境大数据分析</td>
+                                    <td>选修</td>
+                                    <td>孙绘淳、陈玉萍</td>
+                                    <td>《双碳战略与农业资源环境保护》</td>
+                                </tr>
+                                <tr>
+                                    <td>数字乡村建设与发展规划</td>
+                                    <td>选修</td>
+                                    <td>谢建豪、张光宏</td>
+                                    <td>已在2024版培养方案中开设</td>
+                                </tr>
+                                <tr>
+                                    <td>农村社会治理数智分析</td>
+                                    <td>选修</td>
+                                    <td>秦小迪、吴海涛</td>
+                                    <td>《农村社会学》《决策理论与方法》</td>
+                                </tr>
+                                <tr>
+                                    <td>大数据与智慧农业</td>
+                                    <td>选修</td>
+                                    <td>梁志会、史战文</td>
+                                    <td>已在2024版培养方案中开设</td>
+                                </tr>
+                                <tr>
+                                    <td>农业品牌数智化运营与管理</td>
+                                    <td>选修</td>
+                                    <td>田云、余昇</td>
+                                    <td>《品牌管理》《商务预测方法》</td>
+                                </tr>
+                                <tr>
+                                    <td>农业项目数智化管理</td>
+                                    <td>选修</td>
+                                    <td>郎晓娟、郑家喜</td>
+                                    <td>已在2024版培养方案中开设</td>
+                                </tr>
+                                <tr>
+                                    <td>农村数字金融</td>
+                                    <td>选修</td>
+                                    <td>郑家喜、姚升保</td>
+                                    <td>《农村金融》与建行的战略合作</td>
+                                </tr>
+                                <tr>
+                                    <td>数智农商管理实验</td>
+                                    <td>实践</td>
+                                    <td>宋敏、崔许锋</td>
+                                    <td>《农林经济管理实验》</td>
+                                </tr>
+                                <tr>
+                                    <td>涉农企业数智分析实务</td>
+                                    <td>实践</td>
+                                    <td>邓远建、孙绘淳</td>
+                                    <td>与牧原、楚为等农业企业的战略合作</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="Cultivation-protocols">
+                    <h3><i class="fas fa-graduation-cap"></i> 全程培养方案设计</h3>
+                    <div class="highlight-block">
+                        <p>本专业的培养方案采用系统化、阶段性的设计理念，构建了一个"三维融合、全程贯通"的创新型人才培养体系。</p>
+                    </div>
+                    <ul>
+                        <li>以"农业产业知识、数据科学方法、商业洞察能力"三大维度为支撑</li>
+                        <li>从第一学期到第八学期形成完整的知识递进链条</li>
+                        <li>在第五至第七学期集中开设专业核心课程</li>
+                        <li>设置19学分的实践教学环节</li>
+                        <li>通过160学分的科学设置，实现通识教育与专业教育的有机结合</li>
+                    </ul>
+                    
+                    <!-- 使用专门的图片链接样式 -->
+                    <div class="image-link-container">
+                        <a href="#/Cultivation-protocols-diagram" class="image-view-button">
+                            <i class="fas fa-chart-bar"></i> 查看全程培养方案流程图
+                        </a>
+                    </div>
+                </section>
+                 <!-- 图片展示页面 -->
+               <section id="Cultivation-protocols-diagram">
+                <h3>培养方案的课程流程图</h3>
+                <div class="fullscreen-image-container">
+                     <!-- 添加r-stretch类使图片可以放大 -->
+                    <img src="培养方案的课程流程图.png" alt="全程培养方案流程图" class="fullscreen-image ">
+                </div>
+                
+                <!-- 使用现有的返回按钮 -->
+                <div class="return-button-container">
+                    <a href="#/Cultivation-protocols" class="return-button"><i class="fas fa-arrow-left"></i> 返回</a>
+                </div>
+            </section>
+
+            </section>
+           <!-- 师资队伍 -->
+            <section id="team">
+                <section>
+                    <h2><i class="fas fa-users"></i> 农业经济管理教研团队能够胜任"数智农商管理"专业方向的可行性分析</h2>
+                    <p>农业经济管理系汇聚了一支实力雄厚、结构合理的高水平师资队伍，在专业技术能力方面呈现出清晰的梯队优势。</p>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-user-tie"></i> 学术引领与实践指导</div>
+                                <p>资深教授既有深厚的农商理论造诣，又具备丰富的产业实践经验</p>
+                            </div>
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-chart-bar"></i> 数据分析与建模</div>
+                                <p>青年教师团队精通Stata、Python和R语言等主流数据分析工具</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-map-marked-alt"></i> 空间信息技术</div>
+                                <p>教师长期深耕GIS与遥感技术应用，在国土空间规划、智慧农业农村等领域积累了丰富经验</p>
+                            </div>
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-random"></i> 学科交叉融合</div>
+                                <p>整合信息工程学院、统计与数学学院，以及工商管理学院运营与供应链管理系的优秀师资力量</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-user-tie"></i> 学术引领与实践指导</h3>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="teacher-card">
+                                <div class="teacher-name">吴海涛</div>
+                                <div class="teacher-title">教授，工商管理学院院长</div>
+                                <p>国家社会科学基金重大项目首席专家</p>
+                            </div>
+                            <div class="teacher-card">
+                                <div class="teacher-name">陈池波</div>
+                                <div class="teacher-title">教授，中南财经政法大学学术委员会副主任</div>
+                                <p>乡村振兴研究中心主任，湖北名师工作室主持人，国家社会科学基金重大项目首席专家</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="teacher-card">
+                                <div class="teacher-name">丁士军</div>
+                                <div class="teacher-title">教授，文澜特聘教授</div>
+                                <p>农业经济与政策研究领域专家</p>
+                            </div>
+                            <div class="teacher-card">
+                                <div class="teacher-name">郑家喜</div>
+                                <div class="teacher-title">教授</div>
+                                <p>曾挂职担任黄冈市林业局副局长，现任九三学社湖北省委员会副主任委员、湖北省第十四届人民代表大会常务委员会委员</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-chart-bar"></i> 数据分析与建模</h3>
+                    <div class="teacher-container">
+                        <div class="columns-3">
+                            <div class="column-3">
+                                <div class="teacher-card">
+                                    <div class="teacher-name">邓远建</div>
+                                    <div class="teacher-title">教授，文澜青年学者</div>
+                                    <p>中国生态经济学学会理事、湖北省生态经济学会秘书长</p>
+                                </div>
+                                <div class="teacher-card">
+                                    <div class="teacher-name">梁志会</div>
+                                    <div class="teacher-title">副教授</div>
+                                    <p>美国佛罗里达大学联合培养博士，英国纽卡斯尔大学访问学者</p>
+                                </div>
+                            </div>
+                            <div class="column-3">
+                                <div class="teacher-card">
+                                    <div class="teacher-name">田云</div>
+                                    <div class="teacher-title">副教授，文澜青年学者</div>
+                                    <p>入选湖北省青年拔尖人才计划</p>
+                                </div>
+                                <div class="teacher-card">
+                                    <div class="teacher-name">孙绘淳</div>
+                                    <div class="teacher-title">助理教授</div>
+                                    <p>杜克大学经济学硕士，明尼苏达大学双城分校应用经济学博士</p>
+                                </div>
+                            </div>
+                            <div class="column-3">
+                                <div class="teacher-card">
+                                    <div class="teacher-name">郎晓娟</div>
+                                    <div class="teacher-title">副教授</div>
+                                    <p>在中国人民大学获得博士学位，清华大学国情研究院博士后</p>
+                                </div>
+                                <div class="teacher-card">
+                                    <div class="teacher-name">史战文</div>
+                                    <div class="teacher-title">助理教授</div>
+                                    <p>经济学博士，香港中文大学访问学者</p>
+                                </div>
+                                <div class="teacher-card">
+                                    <div class="teacher-name">秦小迪</div>
+                                    <div class="teacher-title">助理教授</div>
+                                    <p>经济学博士</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-map-marked-alt"></i> 空间信息技术</h3>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="teacher-card">
+                                <div class="teacher-name">宋敏</div>
+                                <div class="teacher-title">教授</div>
+                                <p>湖北省农业农村法治研究会常务理事、湖北省国土空间规划学会国土空间法规政策与用途管制专业委员会副主任委员</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="teacher-card">
+                                <div class="teacher-name">谢建豪</div>
+                                <div class="teacher-title">副教授</div>
+                                <p>注册房地产估价师、湖北省土地学会副秘书长</p>
+                            </div>
+                            <div class="teacher-card">
+                                <div class="teacher-name">崔许锋</div>
+                                <div class="teacher-title">副教授</div>
+                                <p>获评湖北省高校经济管理实验教学"优秀教师"</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-random"></i> 学科交叉融合</h3>
+                    <p>以下教师将提供在《商务数据建模》《数据分析方法与模型》《决策理论与方法》《项目管理理论与实践》《商务预测方法》等已承担本科课程中积累的教学资源和方法，深度参与到"数智农商管理"相关课程的建设和教学创新实践中。</p>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="teacher-card">
+                                <div class="teacher-name">姚升保</div>
+                                <div class="teacher-title">教授</div>
+                                <p>华中科技大学系统工程博士，商务分析与运营教研室</p>
+                            </div>
+                            <div class="teacher-card">
+                                <div class="teacher-name">屈志光</div>
+                                <div class="teacher-title">副教授</div>
+                                <p>信息工程学院</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="teacher-card">
+                                <div class="teacher-name">余昇</div>
+                                <div class="teacher-title">副教授</div>
+                                <p>曾于英国利物浦大学、法国巴黎萨克雷大学交流访问，商务分析与运营教研室</p>
+                            </div>
+                            <div class="teacher-card">
+                                <div class="teacher-name">赵雁</div>
+                                <div class="teacher-title">副教授</div>
+                                <p>商务分析与运营教研室</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-handshake"></i> 产教融合</h3>
+                    <div class="columns-3">
+                        <div class="column-3">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-university"></i> 与中国建设银行合作</div>
+                                <ul>
+                                    <li>联合培养专硕项目（2022年启动）</li>
+                                    <li>采用"双导师"制等创新培养机制</li>
+                                    <li>入选中国教育发展战略学会2023-2024年度产教融合校企合作典型案例</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column-3">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-industry"></i> 与农业龙头企业合作</div>
+                                <ul>
+                                    <li>与牧原股份建立产学研合作基地</li>
+                                    <li>与楚为生物科技有限公司合作项目获"挑战杯"中国大学生创业计划竞赛"铜奖"</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column-3">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-search"></i> 中南农经乡村振兴千村行</div>
+                                <ul>
+                                    <li>深入湖北、四川、云南等地区的数百个行政村调研</li>
+                                    <li>收集近万份调查问卷数据</li>
+                                    <li>为学生提供实践经验和数据资源</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 教材与课程资源体系建设 -->
+            <section>
+                <section>
+                    <h2><i class="fas fa-book"></i> 工商管理（数智农商管理）系列教材与课程资源体系建设</h2>
+                    <p>将以"一体两翼、三层递进"的思路构建系统化的教材与课程资源体系，以实现"农业产业知识（Agriculture）"、"数智科学方法（Data Science）"与"商业洞察能力（Business Insights）"三大板块的有机融合。</p>
+                    <!-- 添加了text-align: center样式来居中容器 -->
+                    <div class="full-image-container" style="text-align: center; margin: 0 auto;">
+                        <!-- 添加了margin属性和max-width来控制图片大小和居中 -->
+                        <img 
+                            src="专业课程资源体系规划思路.png" 
+                            alt="专业课程资源体系规划思路图" 
+                            class="full-image"
+                            style="margin: 0 auto; display: block; max-width: 90%; height: auto;"
+                        >
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-bullseye"></i> "一体"：核心教材与资源库</h3>
+                    <div class="highlight-block">
+                        <p>在已有的《农业经济学》教材、《农业政策学》一流本科课程等经典核心课程基础上，增加《数智时代农业强国概论》《数智农商管理导论》等引领型数智农商管理核心课程教材与资源库，构建理论与实践深度融合的核心教材体系。</p>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-book-open"></i> 教材特点</div>
+                                <ul>
+                                    <li>阐述数字时代农业发展的战略定位与理论框架</li>
+                                    <li>系统介绍数智农商管理的基本原理与应用场景</li>
+                                    <li>邀请行业专家深度参与</li>
+                                    <li>融入数字农业转型的新理念、新技术、新模式</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-digital-tachograph"></i> 数字化教学资源</div>
+                                <ul>
+                                    <li>开发多媒体课件、微课、动画等数字资源</li>
+                                    <li>构建知识点精讲库</li>
+                                    <li>建设数字农业发展案例库</li>
+                                    <li>开发智能题库和在线测评系统</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-code-branch"></i> "两翼"：技术支撑与应用实践</h3>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-tools"></i> 技术支撑类</div>
+                                <ul>
+                                    <li>以《农商数据采集与分析方法》《数智农商管理分析与应用》为基础</li>
+                                    <li>开发标准化的实验教材</li>
+                                    <li>设计数据采集、清洗、分析、可视化等环节的实验项目</li>
+                                    <li>建设在线实验教学平台，整合Stata、python、R语言等资源</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-laptop-code"></i> 应用实践类</div>
+                                <ul>
+                                    <li>以《智慧国土空间管理》《智慧林业资源管理》《大数据与智慧农业》等为代表</li>
+                                    <li>突出应用导向，开发基于真实场景的情景模拟教学资源</li>
+                                    <li>联合行业企业建立实践教学基地联盟</li>
+                                    <li>引入真实的生产经营数据和应用场景</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-layer-group"></i> "三层"：基础层、进阶层、实践层</h3>
+                    
+                    <!-- 层级导航 -->
+                    <div class="layer-nav">
+                        <button class="layer-btn active" data-layer="bottom">
+                            <i class="fas fa-layer-group"></i> 基础层
+                        </button>
+                        <button class="layer-btn" data-layer="middle">
+                            <i class="fas fa-cubes"></i> 进阶层
+                        </button>
+                        <button class="layer-btn" data-layer="top">
+                            <i class="fas fa-rocket"></i> 实践层
+                        </button>
+                    </div>
+                    
+                    <!-- 三层容器 -->
+                    <div class="three-layer-container">
+                        <!-- 实践层面板 -->
+                        <div class="layer-panel" id="top-panel">
+                            <div class="layer-item layer-top">
+                                <div class="layer-title">
+                                    <i class="fas fa-rocket"></i>
+                                    <h3>实践层</h3>
+                                </div>
+                                <p>着眼于综合应用能力提升，构建"实践教材+案例库+项目库"的应用资源体系</p>
+                                <div class="layer-content">
+                                    <div class="layer-item-box">
+                                        <h4>开发融合行业实践的新型教材</h4>
+                                        <p>《大数据与农业产业链运营管理》《智慧国土空间管理》《农村社会治理数智分析》</p>
+                                    </div>
+                                    <div class="layer-item-box">
+                                        <h4>系统收集整理典型案例</h4>
+                                        <p>农业产业数字化转型、乡村治理创新等领域典型案例，覆盖不同应用场景</p>
+                                    </div>
+                                    <div class="layer-item-box">
+                                        <h4>建设实践项目库</h4>
+                                        <p>与行业伙伴共建真实项目库，提供产学研融合的实践平台和创新创业项目孵化机会</p>
+                                    </div>
+                                    <div class="layer-item-box">
+                                        <h4>应用创新</h4>
+                                        <p>强化产业实践深度对接，引入真实数据与业务场景，培养学生从理论到实践的转化能力</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 进阶层面板 -->
+                        <div class="layer-panel" id="middle-panel">
+                            <div class="layer-item layer-middle">
+                                <div class="layer-title">
+                                    <i class="fas fa-cubes"></i>
+                                    <h3>进阶层</h3>
+                                </div>
+                                <p>聚焦专业技能培养，构建"工具教材+实验指南+在线平台"的进阶资源体系</p>
+                                <div class="layer-content">
+                                    <div class="layer-item-box">
+                                        <h4>开发标准化实验教材与指导手册</h4>
+                                        <p>《农商数据采集与分析方法》《数智农商管理分析与应用》《遥感GIS与土地经济分析》</p>
+                                    </div>
+                                    <div class="layer-item-box">
+                                        <h4>建设数智农商管理分析实验平台</h4>
+                                        <p>整合Stata、GIS等专业软件资源和人工智能本地化部署，提供实验支持环境</p>
+                                    </div>
+                                    <div class="layer-item-box">
+                                        <h4>培养工具使用与实践能力</h4>
+                                        <p>通过案例导向的实验项目，培养学生数据分析工具应用与综合解决问题的能力</p>
+                                    </div>
+                                    <div class="layer-item-box">
+                                        <h4>特色亮点</h4>
+                                        <p>结合专业特色工具链，形成标准化实验流程，提供可复制、可推广的技能培养路径</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 基础层面板 -->
+                        <div class="layer-panel active" id="bottom-panel">
+                            <div class="layer-item layer-bottom">
+                                <div class="layer-title">
+                                    <i class="fas fa-layer-group"></i>
+                                    <h3>基础层</h3>
+                                </div>
+                                <p>夯实学科基础，构建"理论教材+数字资源+知识图谱"的基础资源体系</p>
+                                <div class="layer-content">
+                                    <div class="layer-item-box">
+                                        <h4>打造理论与实践相结合的新形态教材</h4>
+                                        <p>《农业经济学》《农业政策学》《数智时代农业强国概论》《数智农商管理导论》</p>
+                                    </div>
+                                    <div class="layer-item-box">
+                                        <h4>配套开发数字化教学资源</h4>
+                                        <p>微课、动画等数字化教学资源，智能题库与自适应学习系统</p>
+                                    </div>
+                                    <div class="layer-item-box">
+                                        <h4>搭建学科知识框架与结构</h4>
+                                        <p>围绕数智农商管理核心知识体系建设，形成清晰学科框架，促进学科融合</p>
+                                    </div>
+                                    <div class="layer-item-box">
+                                        <h4>特色创新</h4>
+                                        <p>将数字素养、数据思维、前沿理论与农商管理学科基础有机融合，奠定学生全面发展基础</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-cogs"></i> 教学资源支撑体系与教学改革创新</h3>
+                    <h4>"三库一平台"的资源支撑体系</h4>
+                    <div class="columns-3">
+                        <div class="column-3">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-folder-open"></i> 典型案例库</div>
+                                <p>收录农业产业链、数字乡村建设、农村金融科技等领域的经典案例</p>
+                            </div>
+                        </div>
+                        <div class="column-3">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-database"></i> 实践数据库</div>
+                                <p>整合来自合作企业的真实业务数据以及团队积累的研究数据</p>
+                            </div>
+                        </div>
+                        <div class="column-3">
+                            <div class="card">
+                                <div class="card-title"><i class="fas fa-box-archive"></i> 教学资源库</div>
+                                <p>汇集微课、慕课、虚拟仿真等多样化教学资源</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title"><i class="fas fa-cloud"></i> 共享平台</div>
+                        <p>建设统一的数智农商管理教学资源共享平台，实现课程资源的在线共享与动态更新</p>
+                    </div>
+                    <div class="highlight-block">
+                        <p>通过项目引领带动课程建设的整体推进，积极申报国家级和省级教学改革项目，推进课程教学方法改革，打造特色课程群。</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 结束页 -->
+            <section class="cover">
+                <div class="cover-content">
+                    <h1>敬请指导</h1>
+                    <h3>工商管理（数智农商管理）专业可行性研究报告</h3>
+                    <p>产教融通 · 数智赋能 · 交叉创新</p>
+                    <div style="margin-top: 30px;">
+                        <p>感谢各位专家莅临指导</p>
+                        <p>恳请各位专家提出宝贵意见</p>
+                    </div>
+
+                     <!-- 在结束页添加 -->
+                    <div class="floating-toc-button">
+                        <a href="#/1" title="返回目录">
+                            <span class="button-icon">
+                                <i class="fas fa-grip-horizontal"></i>
+                            </span>
+                            <span class="button-label">返回目录</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="libs/reveal.js/dist/reveal.js"></script>
+    <!-- 添加所需的 RevealJS 插件 -->
+    <script src="libs/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="libs/reveal.js/plugin/highlight/highlight.js"></script>
+    <!-- 如果您使用 Mermaid，请添加 Mermaid 库 -->
+    <script src="libs/mermaid/mermaid.min.js"></script>
+    
+    <script>
+        // 确保所有库都已加载
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查 Reveal 对象是否存在
+            if (typeof Reveal === 'undefined') {
+                console.error('RevealJS 未加载!');
+                alert('演示文稿无法正确初始化。请确保 RevealJS 已正确加载。');
+                return;
+            }
+    
+            // 初始化 RevealJS (简化并修复重复配置)
+            Reveal.initialize({
+                // 基本配置
+                hash: true,
+                center: false,
+                transition: 'slide',
+                slideNumber: true,
+                progress: true,
+                controls: true,
+                
+                // 尺寸和缩放配置 - 修复重复定义
+                width: '100%',
+                height: '100%',
+                margin: 0.03,
+                scale: 1,
+                minScale: 0.2,
+                maxScale: 1.5,
+                
+                // 导航配置
+                navigationMode: 'default',
+                overview: true,
+                touch: true,
+                disableLayout: false,
+                embedded: false,
+                
+                // 键盘配置 - 修复重复定义
+                keyboard: {
+                    33: 'prev', // PageUp
+                    34: 'next', // PageDown
+                    37: 'prev', // 左箭头
+                    38: 'up',   // 上箭头
+                    39: 'next', // 右箭头
+                    40: 'down', // 下箭头
+                    
+                    // 添加Home和End键支持
+                    36: function() { // Home键
+                        var currentSlide = Reveal.getCurrentSlide();
+                        if (currentSlide) {
+                            currentSlide.scrollTop = 0;
+                        }
+                    },
+                    35: function() { // End键
+                        var currentSlide = Reveal.getCurrentSlide();
+                        if (currentSlide) {
+                            currentSlide.scrollTop = currentSlide.scrollHeight;
+                        }
+                    }
+                },
+                
+                // 自动播放配置
+                autoSlide: 0,
+                autoSlideStoppable: true,
+                
+                // 确保依赖项正确配置
+                dependencies: []
+            }).then(function() {
+                // RevealJS 初始化完成后的处理
+                console.log('RevealJS 初始化成功!');
+                
+                // 添加自定义滚动处理
+                document.addEventListener('wheel', handleScroll, { passive: false });
+                
+                // 设置额外的滚动处理器
+                setupScrollHandlers();
+                
+                // 添加目录导航的高亮功能
+                setupNavigationHighlight();
+            });
+    
+            // 如果使用了 Mermaid
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({
+                    startOnLoad: true,
+                    theme: 'default',
+                    securityLevel: 'loose'
+                });
+            } else {
+                console.warn('Mermaid 库未加载，图表功能可能不可用');
+            }
+        });
+    
+        // 设置导航高亮功能
+        function setupNavigationHighlight() {
+            // 当幻灯片变化时高亮对应的目录项
+            Reveal.on('slidechanged', function(event) {
+                highlightCurrentTocItem();
+            });
+            
+            // 初始高亮
+            highlightCurrentTocItem();
+        }
+    
+        // 高亮当前目录项
+        function highlightCurrentTocItem() {
+            // 获取当前幻灯片索引
+            const indices = Reveal.getIndices();
+            if (!indices) return;
+            
+            // 构建当前幻灯片的链接
+            const currentLink = `#/${indices.h}/${indices.v || 0}`;
+            
+            // 找到所有目录链接
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            // 清除所有高亮
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // 高亮当前链接
+            tocLinks.forEach(link => {
+                if (link.getAttribute('href') === currentLink) {
+                    link.classList.add('active');
+                    
+                    // 找到父卡片并添加高亮效果
+                    const parentCard = link.closest('.toc-card');
+                    if (parentCard) {
+                        document.querySelectorAll('.toc-card').forEach(card => {
+                            card.classList.remove('active-card');
+                        });
+                        parentCard.classList.add('active-card');
+                    }
+                }
+            });
+        }
+    
+        // 处理滚动事件的函数
+        function handleScroll(event) {
+            const currentSlide = Reveal.getCurrentSlide();
+            
+            if (currentSlide) {
+                const isAtTop = currentSlide.scrollTop === 0;
+                const isAtBottom = currentSlide.scrollTop + currentSlide.clientHeight >= currentSlide.scrollHeight - 10;
+                
+                if ((isAtTop && event.deltaY < 0) || (isAtBottom && event.deltaY > 0)) {
+                    return;
+                } else {
+                    event.stopPropagation();
+                }
+            }
+        }
+    
+        // 设置更多的滚动处理器
+        function setupScrollHandlers() {
+            // 为每个幻灯片添加滚动监听器
+            Reveal.on('slidechanged', function(event) {
+                const currentSlide = event.currentSlide;
+                
+                // 重置滚动位置
+                if (currentSlide) {
+                    currentSlide.scrollTop = 0;
+                }
+                
+                // 标记当前幻灯片可滚动
+                if (currentSlide.scrollHeight > currentSlide.clientHeight) {
+                    currentSlide.classList.add('scrollable');
+                } else {
+                    currentSlide.classList.remove('scrollable');
+                }
+            });
+            
+            // 初始化当前幻灯片
+            const currentSlide = Reveal.getCurrentSlide();
+            if (currentSlide && currentSlide.scrollHeight > currentSlide.clientHeight) {
+                currentSlide.classList.add('scrollable');
+            }
+        }
+    
+        // 提供额外的滚动辅助功能
+        function scrollToTop() {
+            const currentSlide = Reveal.getCurrentSlide();
+            if (currentSlide) {
+                currentSlide.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    
+        function scrollToBottom() {
+            const currentSlide = Reveal.getCurrentSlide();
+            if (currentSlide) {
+                currentSlide.scrollTo({
+                    top: currentSlide.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // 添加三层交互功能
+        function setupLayerInteraction() {
+            const layerBtns = document.querySelectorAll('.layer-btn');
+            const layerPanels = document.querySelectorAll('.layer-panel');
+            
+            if (layerBtns.length === 0 || layerPanels.length === 0) {
+                console.warn('未找到三层结构按钮或面板元素');
+                return;
+            }
+            
+            // 切换层级显示
+            function switchLayer(layerId) {
+                // 隐藏所有面板
+                layerPanels.forEach(panel => {
+                    panel.classList.remove('active');
+                });
+                
+                // 取消所有按钮激活状态
+                layerBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // 获取目标面板
+                const targetPanel = document.getElementById(`${layerId}-panel`);
+                const targetBtn = document.querySelector(`[data-layer="${layerId}"]`);
+                
+                // 确保元素存在
+                if (targetPanel && targetBtn) {
+                    targetPanel.classList.add('active');
+                    targetBtn.classList.add('active');
+                } else {
+                    console.warn(`找不到ID为 ${layerId}-panel 的面板或 data-layer=${layerId} 的按钮`);
+                }
+            }
+            
+            // 添加按钮点击事件
+            layerBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const layerId = this.getAttribute('data-layer');
+                    if (layerId) {
+                        switchLayer(layerId);
+                    }
+                });
+            });
+            
+            // 初始化第一个面板
+            if (layerBtns.length > 0) {
+                const firstLayerId = layerBtns[0].getAttribute('data-layer');
+                if (firstLayerId) {
+                    switchLayer(firstLayerId);
+                }
+            }
+        }
+    
+        // 三维融合示意图弹窗函数
+        function showADBDiagram() {
+            const modal = document.getElementById('adbDiagramModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                Reveal.configure({ keyboard: false });
+            }
+        }
+    
+        function closeADBModal() {
+            const modal = document.getElementById('adbDiagramModal');
+            if (modal) {
+                modal.style.display = 'none';
+                Reveal.configure({ keyboard: true });
+            }
+        }
+    
+        // 全屏切换函数
+        function toggleFullScreen(element) {
+            if (!document.fullscreenElement &&
+                !document.mozFullScreenElement &&
+                !document.webkitFullscreenElement &&
+                !document.msFullscreenElement) {
+                
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.mozRequestFullScreen) {
+                    element.mozRequestFullScreen();
+                } else if (element.webkitRequestFullscreen) {
+                    element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) {
+                    element.msRequestFullscreen();
+                }
+                
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
+    
+        // 更新光标函数
+        function updateCursor() {
+            const img = document.getElementById('curriculum-image');
+            if (img) {
+                if (document.fullscreenElement || 
+                    document.webkitFullscreenElement || 
+                    document.mozFullScreenElement ||
+                    document.msFullscreenElement) {
+                    img.style.cursor = 'zoom-out';
+                    img.title = "点击退出全屏";
+                } else {
+                    img.style.cursor = 'zoom-in';
+                    img.title = "点击查看全屏";
+                }
+            }
+        }
+    
+        // 添加全屏变化事件监听器
+        document.addEventListener('fullscreenchange', updateCursor);
+        document.addEventListener('webkitfullscreenchange', updateCursor);
+        document.addEventListener('mozfullscreenchange', updateCursor);
+        document.addEventListener('MSFullscreenChange', updateCursor);
+        
+        // 在 DOM 加载完成后设置模态框点击事件
+        document.addEventListener('DOMContentLoaded', function() {
+            // 点击模态框背景关闭
+            const modal = document.getElementById('adbDiagramModal');
+            if (modal) {
+                modal.addEventListener('click', function(event) {
+                    if (event.target === modal) {
+                        closeADBModal();
+                    }
+                });
+            }
+            
+            // 初始化三层交互
+            setupLayerInteraction();
+        });
+    </script>
+</body>
+</html>
